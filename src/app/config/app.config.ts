@@ -48,6 +48,8 @@ export const AppSettings: AppConfig = {
         theme: {
             default: 'teia-ativa-classico',
             available: [
+                'teia-ativa-original',
+                'teia-ativa-original-dark',
                 'teia-ativa-classico',
                 'teia-ativa-moderno',
                 'teia-ativa-classico-dark',

@@ -3,7 +3,6 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-authority',
-  imports: [NgIf],
   templateUrl: './authority.html',
   styleUrl: './authority.scss',
 })

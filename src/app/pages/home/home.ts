@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Hero } from '../../components/hero/hero';
-import { Segmentation } from '../../components/segmentation/segmentation';
-import { Methodology } from '../../components/methodology/methodology';
-import { Testimonials } from '../../components/testimonials/testimonials';
-import { Authority } from '../../components/authority/authority';
-import { Guarantee } from '../../components/guarantee/guarantee';
+import { Segmentation } from '../../components/offers/segmentation/segmentation';
+import { Methodology } from '../../components/proofs/methodology/methodology';
+import { Testimonials } from '../../components/proofs/testimonials/testimonials';
+import { Authority } from '../../components/proofs/authority/authority';
+import { Guarantee } from '../../components/proofs/guarantee/guarantee';
 import { Cta } from '../../components/cta/cta';
 
 @Component({

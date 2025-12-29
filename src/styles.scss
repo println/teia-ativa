@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+    --color-company: #3A638C;
+    --color-education: #EAB308;
+    --color-government: #64748B;
+}
+
+
 @plugin "daisyui" {
     themes:
         teia-ativa-classico --default,
@@ -43,7 +50,9 @@
         sunset,
         caramellatte,
         abyss,
-        silk;
+        silk,
+        teia-ativa-original,
+        teia-ativa-original-dark;
 }
 
 /* Custom Theme: Chocolate */
@@ -77,6 +86,141 @@
     --border: 1.5px;
     --depth: 0;
     --noise: 1;
+}
+
+:root[data-theme="teia-ativa-original"] {
+    color-scheme: light;
+
+    /* Configuração extraída de code.html */
+    --color-primary: #304B2A;
+    /* Dark Green */
+    --color-primary-content: #ffffff;
+
+    --color-secondary: #507048;
+    /* Secondary Green Variant */
+    --color-secondary-content: #ffffff;
+
+    --color-accent: #F36928;
+    /* Orange/Rust */
+    --color-accent-content: #ffffff;
+
+    --color-neutral: #2C3E2C;
+    /* Neutral Dark */
+    --color-neutral-content: #E8EFE6;
+
+    --color-base-100: #ffffff;
+    /* Surface Light */
+    --color-base-200: #F7F9F5;
+    /* Background Light */
+    --color-base-300: #E8EFE6;
+    /* Neutral Light */
+    --color-base-content: #1f2937;
+    /* gray-800 approx */
+
+    --color-info: #3A638C;
+    --color-success: #304B2A;
+    --color-warning: #F36928;
+    --color-error: #ef4444;
+
+    /* Custom Profile Colors */
+    --color-company: #3A638C;
+    --color-education: #EAB308;
+    /* Yellow-500 */
+    --color-government: #64748B;
+    /* Slate-500 */
+
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+:root[data-theme="teia-ativa-original-dark"] {
+    color-scheme: dark;
+
+    --color-primary: #304B2A;
+    --color-primary-content: #ffffff;
+
+    --color-secondary: #4A6044;
+    /* Darker Secondary Green */
+    --color-secondary-content: #ffffff;
+
+    --color-accent: #F36928;
+    --color-accent-content: #ffffff;
+
+    --color-neutral: #1a261a;
+    --color-neutral-content: #F7F9F5;
+
+    --color-base-100: #1a261a;
+    /* Background Dark */
+    --color-base-200: #243324;
+    /* Surface Dark */
+    --color-base-300: #2C3E2C;
+    /* Neutral Dark */
+    --color-base-content: #e5e7eb;
+    /* gray-200 approx */
+
+    --color-info: #3A638C;
+    --color-success: #304B2A;
+    --color-warning: #F36928;
+    --color-error: #ef4444;
+
+    /* Custom Profile Colors */
+    --color-company: #2A4761;
+    --color-education: #FACC15;
+    /* Yellow-400 for dark mode */
+    --color-government: #94A3B8;
+    /* Slate-400 for dark mode */
+
+    --radius-selector: 0.5rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+/* Custom Utilities for Profile Colors */
+.text-company {
+    color: var(--color-company);
+}
+
+.bg-company {
+    background-color: var(--color-company);
+}
+
+.border-company {
+    border-color: var(--color-company);
+}
+
+.text-education {
+    color: var(--color-education);
+}
+
+.bg-education {
+    background-color: var(--color-education);
+}
+
+.border-education {
+    border-color: var(--color-education);
+}
+
+.text-government {
+    color: var(--color-government);
+}
+
+.bg-government {
+    background-color: var(--color-government);
+}
+
+.border-government {
+    border-color: var(--color-government);
 }
 
 :root[data-theme="mariam-gourmet"] {
