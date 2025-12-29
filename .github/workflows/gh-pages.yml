@@ -28,9 +28,9 @@ jobs:
         run: npm run build -- --configuration production --base-href /teia-ativa/
 
       - name: Copy index.html to 404.html
-        run: cp dist/teia-ativa/browser/index.html dist/teia-ativa/browser/404.html
+        run: cp dist/teia-ativa-app/browser/index.html dist/teia-ativa-app/browser/404.html
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/teia-ativa/browser
+          folder: dist/teia-ativa-app/browser
