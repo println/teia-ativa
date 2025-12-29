@@ -1,0 +1,216 @@
+<section class="py-20 bg-gray-50" id="sobre">
+    <div class="max-w-[1200px] mx-auto px-4">
+        <h2 class="text-4xl font-bold text-teia-green text-center mb-16">Quem Facilita a Transformação</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Especialista 1 -->
+            <!-- Especialista 1 -->
+            <div class="card bg-base-100 shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                <figure class="px-10 pt-10">
+                    <div class="avatar">
+                        <div class="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div
+                                class="flex items-center justify-center w-full h-full bg-base-300 text-base-content/50 text-xl font-bold">
+                                Foto</div>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title text-primary text-2xl">Nome Especialista 1</h2>
+                    <p class="text-primary font-semibold">Fundador(a) e Facilitador(a)</p>
+                    <p class="mb-4">X anos em educação socioambiental. Especialista em metodologias ativas e
+                        transformação cultural.</p>
+                    <div class="card-actions">
+                        <button class="btn btn-outline btn-primary rounded-full px-6" (click)="toggleEspecialista(1)">
+                            {{ isOpen(1) ? 'Saiba menos' : 'Saiba mais' }}
+                        </button>
+                    </div>
+                    <div *ngIf="isOpen(1)" class="text-left mt-6 pt-6 border-t border-base-200 w-full animate-fadeIn">
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Trajetória</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">X anos de experiência
+                                    em educação socioambiental</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Formação em [área
+                                    relevante]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Pós-graduação/Mestrado
+                                    em [área]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Certificações em
+                                    metodologias ativas</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Resultados</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XXX+ pessoas impactadas
+                                    diretamente</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XX projetos
+                                    implementados</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XX empresas
+                                    transformadas</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Empresas e Instituições</h4>
+                            <p class="text-sm opacity-80">Trabalhou com: [Nome Empresa 1], [Nome Empresa 2], [Nome
+                                Empresa 3], [Nome Instituição 1], [Nome Instituição 2]</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Conquistas</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🏆
+                                    Prêmio/Reconhecimento X</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">📚 Publicação/Artigo em
+                                    [veículo]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🎤 Palestrante em
+                                    [evento importante]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🤝 Parceria estratégica
+                                    com [organização relevante]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Especialista 2 -->
+            <!-- Especialista 2 -->
+            <div class="card bg-base-100 shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                <figure class="px-10 pt-10">
+                    <div class="avatar">
+                        <div class="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div
+                                class="flex items-center justify-center w-full h-full bg-base-300 text-base-content/50 text-xl font-bold">
+                                Foto</div>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title text-primary text-2xl">Nome Especialista 2</h2>
+                    <p class="text-primary font-semibold">Co-fundador(a) e Facilitador(a)</p>
+                    <p class="mb-4">Especialista em sustentabilidade corporativa e gestão de mudanças culturais.</p>
+                    <div class="card-actions">
+                        <button class="btn btn-outline btn-primary rounded-full px-6" (click)="toggleEspecialista(2)">
+                            {{ isOpen(2) ? 'Saiba menos' : 'Saiba mais' }}
+                        </button>
+                    </div>
+                    <div *ngIf="isOpen(2)" class="text-left mt-6 pt-6 border-t border-base-200 w-full animate-fadeIn">
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Trajetória</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">X anos de experiência
+                                    em [área específica]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Formação em [área
+                                    relevante]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Especialização em
+                                    [tema]</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Resultados</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XXX+ profissionais
+                                    capacitados</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XX organizações
+                                    assessoradas</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Empresas e Instituições</h4>
+                            <p class="text-sm opacity-80">Trabalhou com: [Lista de clientes relevantes]</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Conquistas</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🏆 Reconhecimento Y
+                                </li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">📖 Autor(a) de
+                                    [publicação]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🎓 Mentor(a) em
+                                    [programa]</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Especialista 3 -->
+            <!-- Especialista 3 -->
+            <div class="card bg-base-100 shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                <figure class="px-10 pt-10">
+                    <div class="avatar">
+                        <div class="w-40 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div
+                                class="flex items-center justify-center w-full h-full bg-base-300 text-base-content/50 text-xl font-bold">
+                                Foto</div>
+                        </div>
+                    </div>
+                </figure>
+                <div class="card-body items-center text-center">
+                    <h2 class="card-title text-primary text-2xl">Nome Especialista 3</h2>
+                    <p class="text-primary font-semibold">Facilitador(a) e Especialista</p>
+                    <p class="mb-4">Focado(a) em educação climática e projetos pedagógicos sustentáveis.</p>
+                    <div class="card-actions">
+                        <button class="btn btn-outline btn-primary rounded-full px-6" (click)="toggleEspecialista(3)">
+                            {{ isOpen(3) ? 'Saiba menos' : 'Saiba mais' }}
+                        </button>
+                    </div>
+                    <div *ngIf="isOpen(3)" class="text-left mt-6 pt-6 border-t border-base-200 w-full animate-fadeIn">
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Trajetória</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">X anos de experiência
+                                    em educação</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Formação em [área
+                                    relevante]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">Especialização em
+                                    [tema]</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Resultados</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XXX+ alunos impactados
+                                </li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">XX escolas
+                                    transformadas</li>
+                            </ul>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Empresas e Instituições</h4>
+                            <p class="text-sm opacity-80">Trabalhou com: [Lista de escolas e instituições]</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="text-lg font-bold text-primary mb-2">Conquistas</h4>
+                            <ul class="space-y-1 text-sm opacity-80">
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🏆 Reconhecimento Z
+                                </li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">📚 Publicação em
+                                    [veículo educacional]</li>
+                                <li class="before:content-['•'] before:mr-2 before:text-primary">🎯 Projetos premiados
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center bg-white p-8 rounded-xl shadow-sm mt-12 max-w-[800px] mx-auto">
+            <h3 class="text-2xl font-bold text-teia-green mb-8">Juntos, já impactamos:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-teia-green mb-2">X+</div>
+                    <div class="text-sm text-gray-600">Anos de experiência acumulada</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-teia-green mb-2">XXX+</div>
+                    <div class="text-sm text-gray-600">Organizações atendidas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-teia-green mb-2">X.XXX+</div>
+                    <div class="text-sm text-gray-600">Pessoas transformadas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-teia-green mb-2">XX+</div>
+                    <div class="text-sm text-gray-600">Prêmios e reconhecimentos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
