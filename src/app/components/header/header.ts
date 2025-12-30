@@ -5,7 +5,7 @@ import { AppSettings } from '../../config/app.config';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -29,7 +29,27 @@ export class Header {
     localStorage.setItem('theme', theme);
   }
 
+  toggleTheme() {
+    const isDark = this.currentTheme.includes('-dark');
+    // Assuming the base theme is teia-ativa-original for now, or determining base from current
+    // Simple toggle between the main project themes
+    if (isDark) {
+      this.setTheme('teia-ativa-original');
+    } else {
+      this.setTheme('teia-ativa-original-dark');
+    }
+  }
+
+  get isDark(): boolean {
+    return this.currentTheme.includes('-dark');
+  }
+
   private applyTheme(theme: string) {
     document.documentElement.setAttribute('data-theme', theme);
+    if (theme.toLowerCase().includes('dark') || theme === 'black' || theme === 'luxury' || theme === 'business' || theme === 'night' || theme === 'coffee' || theme === 'dim') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }
 }
