@@ -1,11 +1,21 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     /* Colors (Utilities) */
     --color-company: #3A638C;
     --color-company-dark: #2A4761;
+    --color-company-blue: #3A638C;
+    --color-company-blue-dark: #2A4761;
     --color-education: #EAB308;
     --color-government: #64748B;
+
+    --color-background-light: #F7F9F5;
+    --color-background-dark: #1a261a;
+    --color-surface-light: #ffffff;
+    --color-surface-dark: #243324;
+    --color-neutral-light: #E8EFE6;
+    --color-neutral-dark: #2C3E2C;
 
     /* Typography */
     --font-display: "Montserrat", sans-serif;
@@ -105,7 +115,7 @@
     color-scheme: dark;
 
     /* Main Palette */
-    --color-primary: #75A56D;
+    --color-primary: #304B2A;
     --color-primary-content: #1a261a;
     --color-accent: #F36928;
     --color-accent-content: #ffffff;
@@ -189,5 +199,5 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
 }

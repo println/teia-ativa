@@ -11,12 +11,13 @@ import { Cta } from '../../components/cta/cta';
 @Component({
   selector: 'app-home',
   imports: [
-    RouterOutlet,
     Hero,
     Segmentation,
+    RouterOutlet,
     Methodology,
     Testimonials,
     Authority,
+    Testimonials,
     Guarantee,
     Cta
   ],

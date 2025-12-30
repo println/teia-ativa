@@ -1,5 +1,5 @@
 <nav
-    class="fixed w-full z-50 bg-base-100/90 backdrop-blur-md border-b border-base-content/10 transition-all duration-300">
+    class="fixed w-full z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <div class="flex-shrink-0 flex items-center">
@@ -11,15 +11,15 @@
                 </a>
             </div>
             <div class="hidden md:flex space-x-8 items-center">
-                <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                <a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     href="#">Sobre</a>
-                <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                <a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     href="#">Serviços</a>
-                <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                <a class="text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     href="#">Contato</a>
                 <div class="relative group-theme">
                     <button
-                        class="flex items-center text-base-content hover:text-primary font-medium focus:outline-none transition-colors"
+                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-green-400 font-medium focus:outline-none"
                         id="theme-toggle" (click)="toggleTheme()"
                         [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
                         <span class="material-symbols-outlined">{{ isDark ? 'light_mode' : 'dark_mode' }}</span>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="hidden md:flex">
-                <a class="bg-primary hover:bg-accent text-primary-content px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
+                <a class="bg-primary hover:bg-accent text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-green-900/20 hover:shadow-orange-500/30 transform hover:-translate-y-1 transition duration-300 ease-out"
                     href="#contact">
                     Fale Conosco
                 </a>
