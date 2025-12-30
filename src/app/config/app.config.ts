@@ -46,18 +46,10 @@ export const AppSettings: AppConfig = {
     },
     features: {
         theme: {
-            default: 'teia-ativa-classico',
+            default: 'teia-ativa-original',
             available: [
                 'teia-ativa-original',
                 'teia-ativa-original-dark',
-                'teia-ativa-classico',
-                'teia-ativa-moderno',
-                'teia-ativa-classico-dark',
-                'teia-ativa-moderno-dark',
-                'mariam-gourmet',
-                'mariam-gourmet-dark',
-                'chocolate',
-                'abyss', 'acid', 'aqua', 'autumn', 'black', 'bumblebee', 'business', 'caramellatte', 'cmyk', 'coffee', 'corporate', 'cupcake', 'cyberpunk', 'dark', 'dim', 'dracula', 'emerald', 'fantasy', 'forest', 'garden', 'halloween', 'lemonade', 'light', 'lofi', 'luxury', 'night', 'nord', 'pastel', 'retro', 'silk', 'sunset', 'synthwave', 'valentine', 'winter', 'wireframe'
             ]
         }
     },
