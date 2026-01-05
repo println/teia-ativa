@@ -3,9 +3,11 @@ import { RouterLink } from '@angular/router';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { AppSettings } from '../../config/app.config';
 
+import { LogoComponent } from '../shared/logo/logo.component';
+
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, LogoComponent],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
