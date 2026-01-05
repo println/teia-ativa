@@ -4,10 +4,11 @@ import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { AppSettings } from '../../config/app.config';
 
 import { LogoComponent } from '../shared/logo/logo.component';
+import { LogoIconComponent } from '../shared/logo/logo-icon.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, LogoComponent],
+  imports: [CommonModule, LogoComponent, LogoIconComponent],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
