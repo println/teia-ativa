@@ -6,9 +6,9 @@
             <div class="flex items-center h-full">
                 <a class="flex h-full items-center gap-2 group" href="#">
                     <div class="h-15">
-                        <app-logo-icon></app-logo-icon>
+                        <app-logo-icon [invertDark]="true"></app-logo-icon>
                     </div>
-                    <app-logo variant="default" class="h-6"></app-logo>
+                    <app-logo variant="default" class="h-6" [invertDark]="true"></app-logo>
                 </a>
             </div>
             <div class="hidden md:flex space-x-8 items-center">
@@ -22,8 +22,9 @@
                     <button
                         class="flex items-center text-base-content hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
                         id="theme-toggle" (click)="toggleTheme()"
-                        [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-                        <span class="material-symbols-outlined">{{ isDark ? 'light_mode' : 'dark_mode' }}</span>
+                        [attr.aria-label]="(isDark$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
+                        <span class="material-symbols-outlined">{{ (isDark$ | async) ? 'light_mode' : 'dark_mode'
+                            }}</span>
                     </button>
                 </div>
             </div>

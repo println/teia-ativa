@@ -1,4 +1,4 @@
-<section class="py-24 lg:py-32 bg-company relative overflow-hidden mt-12">
+<section class="py-24 lg:py-32 bg-company relative overflow-hidden mt-12" *ngIf="content">
     <div
         class="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none">
     </div>
@@ -12,6 +12,102 @@
             <path d="M0 60 Q 50 10 100 60" fill="none" stroke="white" stroke-width="0.5"></path>
         </svg>
     </div>
-    <app-differentiators></app-differentiators>
-    <app-comparison></app-comparison>
+
+    <!-- Hero / Differentiators Top Section -->
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10 mb-24">
+        <div
+            class="absolute -top-20 -left-20 text-[200px] text-white/5 font-display font-bold opacity-50 select-none z-0">
+            ?</div>
+        <!-- Hero Title with Markdown Support -->
+        <h2 class="hero-title relative z-10 font-display text-3xl lg:text-5xl font-bold text-white mb-8 leading-tight"
+            [innerHTML]="content.hero.title">
+        </h2>
+        <p class="relative z-10 text-lg lg:text-xl text-blue-100/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+            {{ content.hero.description }}
+        </p>
+    </div>
+
+    <!-- Differentiators List Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-24">
+        <div class="text-center mb-16">
+            <span class="text-accent font-bold tracking-widest uppercase text-sm mb-3 block">{{ content.eyebrow
+                }}</span>
+            <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-6">{{ content.title }}</h2>
+            <p class="text-blue-100/90 font-medium max-w-2xl mx-auto">{{ content.subtitle }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div *ngFor="let diff of content.differentiators; let i = index"
+                class="group bg-white p-8 rounded-3xl border border-transparent hover:border-accent/50 shadow-lg hover:shadow-2xl hover:shadow-accent/20 transition-all duration-300 relative overflow-hidden">
+                <div [ngClass]="{'bg-company/5': i % 2 === 0, 'bg-accent/5': i % 2 !== 0}"
+                    class="absolute top-0 right-0 w-24 h-24 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110">
+                </div>
+                <div [ngClass]="{'bg-blue-100 text-company group-hover:bg-company': i % 2 === 0, 'bg-orange-100 text-accent group-hover:bg-accent': i % 2 !== 0}"
+                    class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:text-white transition-colors duration-300">
+                    <span class="material-symbols-outlined text-3xl group-hover:text-white">{{ diff.icon }}</span>
+                </div>
+                <h3 class="font-bold text-xl text-gray-800 mb-3" [class.group-hover:text-white]="false">{{ diff.title }}
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed">{{ diff.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <!-- Negative / Left Side -->
+            <div
+                class="bg-white border border-gray-100 rounded-3xl p-8 lg:p-12 shadow-xl relative group hover:border-red-200 transition-colors">
+                <div
+                    class="absolute -top-6 -left-6 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center border-4 border-company z-10">
+                    <span class="material-symbols-outlined text-red-500">close</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-8">{{ content.comparison.negative.title }}</h3>
+                <ul class="space-y-6">
+                    <li class="flex gap-4" *ngFor="let item of content.comparison.negative.items">
+                        <span
+                            class="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mt-1">
+                            <span class="material-symbols-outlined text-red-500 text-sm">remove</span>
+                        </span>
+                        <div>
+                            <span class="block font-bold text-gray-900">{{ item.title }}</span>
+                            <span class="text-sm text-gray-500">{{ item.description }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Positive / Right Side -->
+            <div
+                class="bg-accent text-white rounded-3xl p-8 lg:p-12 shadow-2xl shadow-orange-900/40 relative overflow-hidden transform md:translate-y-12 border border-white/10">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full blur-3xl -mr-20 -mt-20">
+                </div>
+                <div
+                    class="absolute -top-6 -right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center border-4 border-company z-10">
+                    <span class="material-symbols-outlined text-accent">check</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-8">{{ content.comparison.positive.title }}</h3>
+                <ul class="space-y-6 relative z-10">
+                    <li class="flex gap-4" *ngFor="let item of content.comparison.positive.items">
+                        <span
+                            class="flex-shrink-0 w-6 h-6 rounded-full bg-white/20 flex items-center justify-center mt-1">
+                            <span class="material-symbols-outlined text-white text-sm">add</span>
+                        </span>
+                        <div>
+                            <span class="block font-bold text-white">{{ item.title }}</span>
+                            <span class="text-sm text-white">{{ item.description }}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Closing Statement -->
+        <div class="text-center mt-24">
+            <h4 class="closing-statement text-2xl md:text-4xl font-display font-bold text-white/90"
+                [innerHTML]="content.comparison.closing">
+            </h4>
+        </div>
+    </div>
 </section>

@@ -2,13 +2,17 @@ import { Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { UiStore } from '../../../store/ui.store';
 
 @Component({
     selector: 'app-logo-icon',
     standalone: true,
     imports: [CommonModule],
     template: `
-        <div [innerHTML]="svgContent" class="logo-container" [ngClass]="variant"></div>
+        <div [innerHTML]="svgContent" 
+             class="logo-container" 
+             [ngClass]="(invertDark && (isDark$ | async)) ? 'light' : variant">
+        </div>
     `,
     styles: [`
         .logo-container {
@@ -37,9 +41,13 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class LogoIconComponent implements OnInit {
     @Input() variant: 'default' | 'light' = 'default';
+    @Input() invertDark = false;
 
     private http = inject(HttpClient);
     private sanitizer = inject(DomSanitizer);
+    private uiStore = inject(UiStore);
+
+    isDark$ = this.uiStore.isDark$;
 
     svgContent: SafeHtml | null = null;
 
