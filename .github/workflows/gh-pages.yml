@@ -27,6 +27,12 @@ jobs:
       - name: Build
         run: npm run build -- --configuration production --base-href /
 
+      - name: Create .nojekyll
+        run: touch dist/teia-ativa-app/browser/.nojekyll
+
+      - name: Debug - List assets
+        run: ls -R dist/teia-ativa-app/browser/assets/
+
       - name: Copy index.html to 404.html
         run: cp dist/teia-ativa-app/browser/index.html dist/teia-ativa-app/browser/404.html
 
