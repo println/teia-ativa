@@ -1,0 +1,38 @@
+// Hero Styles
+// Using .hero-title class to target the specific h2
+.hero-title {
+    em {
+        font-family: serif;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    strong {
+        color: #F36928;
+        /* var(--color-accent) hardcoded for safety */
+        text-decoration: underline;
+        text-decoration-thickness: 4px;
+        text-decoration-color: rgba(243, 105, 40, 0.3);
+        /* accent with 30% opacity */
+    }
+}
+
+
+// Closing Statement Styles
+.closing-statement {
+    strong {
+        color: #F36928;
+        /* var(--color-accent) */
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 0.25rem 1rem;
+        /* px-4 py-1 */
+        border-radius: 0.5rem;
+        /* rounded-lg */
+        display: inline-block;
+        margin-top: 0.75rem;
+        /* mt-3 */
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        /* shadow-lg */
+        transform: rotate(-1deg);
+    }
+}
