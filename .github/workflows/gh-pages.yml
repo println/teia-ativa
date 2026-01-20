@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build -- --configuration production --base-href /
+        run: npm run build -- --configuration production --base-href /teia-ativa/
 
       - name: Create .nojekyll
         run: touch dist/teia-ativa-app/browser/.nojekyll
@@ -36,8 +36,7 @@ jobs:
       - name: Copy index.html to 404.html
         run: cp dist/teia-ativa-app/browser/index.html dist/teia-ativa-app/browser/404.html
 
-      - name: Create CNAME
-        run: echo "teiaativa.com.br" > dist/teia-ativa-app/browser/CNAME
+
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
