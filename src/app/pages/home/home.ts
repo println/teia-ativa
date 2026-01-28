@@ -17,7 +17,6 @@ import { Cta } from '../../components/cta/cta';
     Methodology,
     Testimonials,
     Authority,
-    Testimonials,
     Guarantee,
     Cta
   ],

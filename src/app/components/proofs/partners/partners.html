@@ -1,0 +1,11 @@
+<div class="mt-20 ticker-container relative">
+    <p class="text-center text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-20">
+        Quem Confia na Nossa Metodologia</p>
+    <div class="partners-ticker-content">
+        @for (logo of displayLogos; track $index) {
+        <div class="logo-set opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            <img [src]="logo.src" [alt]="logo.alt" class="h-16 md:h-24 w-auto object-contain">
+        </div>
+        }
+    </div>
+</div>
