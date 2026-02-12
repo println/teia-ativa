@@ -25,6 +25,7 @@ export const NAMES = {
         profile: 'profile',
         cart: 'cart',
         about: 'about',
+        services: 'services',
         contact: 'contact',
     },
     ERROR_PAGES: {

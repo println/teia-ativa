@@ -5,6 +5,7 @@ import { Segmentation } from '../../components/offers/segmentation/segmentation'
 import { Methodology } from '../../components/proofs/methodology/methodology';
 import { Testimonials } from '../../components/proofs/testimonials/testimonials';
 import { Authority } from '../../components/proofs/authority/authority';
+import { Stats } from '../../components/proofs/stats/stats';
 import { Guarantee } from '../../components/proofs/guarantee/guarantee';
 import { Cta } from '../../components/cta/cta';
 
@@ -17,6 +18,7 @@ import { Cta } from '../../components/cta/cta';
     Methodology,
     Testimonials,
     Authority,
+    Stats,
     Guarantee,
     Cta
   ],

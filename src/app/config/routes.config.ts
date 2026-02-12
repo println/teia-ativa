@@ -20,6 +20,7 @@ export const ROUTES = {
     profile: makePath(NAMES.BASIC_PAGES.profile),
     cart: makePath(NAMES.BASIC_PAGES.cart),
     about: makePath(NAMES.BASIC_PAGES.about),
+    services: makePath(NAMES.BASIC_PAGES.services),
     contact: makePath(NAMES.BASIC_PAGES.contact),
     error: makePath(NAMES.ERROR_PAGES.error),
 };

@@ -26,6 +26,8 @@ export interface AppConfig {
         facebook?: string;
         youtube?: string;
         telegram?: string;
+        tiktok?: string;
+        linkedin?: string;
     };
     features: {
         theme: {
@@ -37,14 +39,16 @@ export interface AppConfig {
 }
 
 export const AppSettings: AppConfig = {
-    storeName: 'Minha Loja',
+    storeName: 'Teia Ativa',
     contact: {
         whatsapp: '5521999999999',
-        email: 'contato@exemplo.com'
+        email: 'contato@teiaativa.com.br'
     },
     social: {
-        instagram: 'https://instagram.com/',
-        facebook: 'https://facebook.com/'
+        instagram: 'https://www.instagram.com/teia.ativa/',
+        facebook: 'https://www.facebook.com/teia.ativa/',
+        tiktok: 'https://www.tiktok.com/@teia.ativa',
+        linkedin: 'https://www.linkedin.com/in/teia-ativa-b911b73a9'
     },
     features: {
         theme: {

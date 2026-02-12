@@ -1,0 +1,40 @@
+.carousel-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari and Opera */
+    }
+
+    /* Smooth scrolling behavior */
+    scroll-behavior: smooth;
+
+    /* Prevent text selection while dragging */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    /* Prevent image dragging */
+    img {
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+/* Cursor styles */
+.cursor-grab {
+    cursor: grab;
+}
+
+.cursor-grabbing {
+    cursor: grabbing;
+}
+
+/* Ensure smooth transitions */
+button {
+    transition: all 0.3s ease;
+}
