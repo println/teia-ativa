@@ -11,7 +11,7 @@ import { LogoIconComponent } from '../shared/logo/logo-icon.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, LogoComponent, LogoIconComponent],
+  imports: [CommonModule, RouterLink, LogoComponent, LogoIconComponent],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

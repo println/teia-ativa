@@ -4,7 +4,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <div class="flex items-center h-full">
-                <a class="flex h-full items-center gap-2 group" [href]="routes.home.fullPath">
+                <a class="flex h-full items-center gap-2 group" [routerLink]="routes.home.fullPath">
                     <div class="h-15">
                         <app-logo-icon [invertDark]="true"></app-logo-icon>
                     </div>
@@ -13,9 +13,9 @@
             </div>
             <div class="hidden md:flex space-x-8 items-center">
                 <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [href]="routes.services.fullPath">Serviços</a>
+                    [routerLink]="routes.services.fullPath">Serviços</a>
                 <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [href]="routes.about.fullPath">Sobre</a>
+                    [routerLink]="routes.about.fullPath">Sobre</a>
                 <div class="relative group-theme">
                     <button
                         class="flex items-center text-base-content hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
@@ -28,7 +28,7 @@
             </div>
             <div class="hidden md:flex">
                 <a class="bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
-                    href="#contact">
+                    [routerLink]="routes.home.fullPath" fragment="contact">
                     Fale Conosco
                 </a>
             </div>

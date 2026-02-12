@@ -14,7 +14,11 @@ const makePath = (label: string, ...parents: string[]) => ({
 });
 
 export const ROUTES = {
-    home: makePath(NAMES.BASIC_PAGES.home),
+    home: {
+        ...makeTitle(NAMES.BASIC_PAGES.home),
+        path: '/',
+        fullPath: '/',
+    },
     products: makePath(NAMES.BASIC_PAGES.products),
     checkout: makePath(NAMES.BASIC_PAGES.checkout),
     profile: makePath(NAMES.BASIC_PAGES.profile),
