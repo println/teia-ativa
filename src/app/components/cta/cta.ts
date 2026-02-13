@@ -15,7 +15,7 @@ export class Cta {
   generalContact = AppSettings.contact;
   selectedContact = this.contacts[0];
 
-  baseMessage = 'Olá! Vim pelo site da Teia Ativa e gostaria de falar com um especialista sobre as consultorias e treinamentos para minha organização';
+  baseMessage = 'Vim pelo site da Teia Ativa e gostaria de falar com um especialista sobre as consultorias e treinamentos para minha organização';
 
   organizationOptions = ['Escola', 'Empresa', 'Setor Público'];
   selectedOrgs: string[] = [];
