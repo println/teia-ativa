@@ -4,7 +4,7 @@
             Impacto
         </h2>
         <app-carousel [itemWidth]="350" [gap]="32">
-            <!-- Testimonial 1 -->
+            @for (item of testimonials; track item.name) {
             <div
                 class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
                 <div class="flex text-accent mb-6">
@@ -19,170 +19,43 @@
                     <span class="material-symbols-outlined text-sm"
                         style="font-variation-settings: 'FILL' 1">star</span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "A Teia Ativa transformou nossa abordagem de sustentabilidade. Não foi só um treinamento, foi uma
-                    mudança real de comportamento. Hoje vemos decisões sustentáveis acontecendo naturalmente."
+                <p class="text-gray-600 dark:text-gray-300 italic mb-4 flex-grow leading-relaxed">
+                    "{{ item.content }}"
                 </p>
                 <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
                     <div
-                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content font-bold text-lg">
-                        MS</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Maria Silva</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">Diretora de ESG</p>
+                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content dark:text-white font-bold text-lg flex-shrink-0">
+                        {{ item.initials }}</div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-bold text-gray-900 dark:text-white truncate" [title]="item.name">{{ item.name }}
+                        </p>
+                        <p class="text-[10px] text-primary dark:text-accent font-bold uppercase tracking-wider truncate"
+                            [title]="item.service">
+                            {{ item.service }}
+                        </p>
+                        <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wide truncate"
+                            [title]="item.role">{{
+                            item.role }}</p>
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
+                            @if (item.location) {
+                            <span class="text-[10px] text-gray-400 dark:text-gray-300 flex items-center gap-0.5"
+                                [title]="item.location">
+                                <span class="material-symbols-outlined text-[12px]">location_on</span>
+                                {{ item.location }}
+                            </span>
+                            }
+                            @if (item.source) {
+                            <a [href]="item.source" target="_blank"
+                                class="text-[10px] text-accent dark:text-accent-light hover:underline flex items-center gap-0.5 ml-auto">
+                                <span class="material-symbols-outlined text-[12px]">link</span>
+                                Fonte
+                            </a>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Testimonial 2 -->
-            <div
-                class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "Finalmente sustentabilidade saiu do papel. As vivências da Teia Ativa geraram insights que nenhuma
-                    apresentação conseguiria. Nossa equipe está engajada de verdade."
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        CS</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Carlos Santos</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">CEO - Indústria</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div
-                class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "A metodologia ativa fez toda diferença. Nossos alunos não apenas aprenderam sobre sustentabilidade,
-                    eles incorporaram. Famílias relatam mudanças de comportamento."
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content font-bold text-lg">
-                        AO</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Ana Oliveira</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">Coord. Pedagógica</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 4 -->
-            <div
-                class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "Os resultados foram imediatos. A equipe se sentiu mais conectada com o propósito da empresa e as
-                    iniciativas de ESG ganharam força total."
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        FL</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Fernanda Lima</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">Gerente de RH</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 5 -->
-            <div
-                class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "Uma experiência única e transformadora. Consegui ver na prática como pequenas ações podem gerar
-                    grandes impactos no nosso dia a dia."
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content font-bold text-lg">
-                        RG</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Ricardo Gomes</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">Analista Ambiental</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 6 -->
-            <div
-                class="w-[350px] flex-shrink-0 snap-center bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-8 flex-grow leading-relaxed">
-                    "Recomendo a todos. A didática é excelente e o conteúdo é muito rico. Saímos de lá com um plano de
-                    ação claro e motivador."
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg">
-                        PC</div>
-                    <div>
-                        <p class="font-bold text-gray-900 dark:text-white">Patricia Costa</p>
-                        <p class="text-xs text-gray-500 uppercase tracking-wide">Líder de Projetos</p>
-                    </div>
-                </div>
-            </div>
+            }
         </app-carousel>
         <app-partners></app-partners>
     </div>
