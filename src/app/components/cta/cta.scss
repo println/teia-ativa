@@ -1,0 +1,13 @@
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Optional: Add smooth scrolling to the whole page if not already present */
+html {
+    scroll-behavior: smooth;
+}
