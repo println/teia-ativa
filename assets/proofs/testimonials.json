@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Caroline Batista",
+        "initials": "CB",
+        "role": "Produtora rural participante do Circuito de Produção Artesanal de Alimentos do Estado do Rio de Janeiro",
+        "content": "Roberto, obrigada por tudo e pelos ensinamentos e pelas aulas. Foi ótimo! É muito bom quando alguém tem a generosidade de compartilhar seus conhecimentos com o próximo! Agradeço a todos que escolheram ensinar. Espero que você tenha muito sucesso nessa área! Venha tomar um café assim que voltar ao Vale! Um grande abraço.",
+        "service": "Serviço prestado para o SENAR",
+        "location": "Vale das Videiras - Petrópolis (RJ)",
+        "source": ""
+    },
+    {
+        "name": "Márcio Soares",
+        "initials": "MS",
+        "role": "Produtor rural participante do Circuito de Produção Artesanal de Alimentos do Estado do Rio de Janeiro",
+        "content": "Bom dia, Roberto! Agradecemos por tudo. Certamente agora no início de nossas simulações ou mesmo definições sobre o tema administrar, teremos dúvidas, mas a prática do exercício vai trazer as certezas e clarezas das quais precisamos. Creio que algumas vezes teremos que apelar para suas elucidações.",
+        "service": "Serviço prestado para SENAR Barra Mansa (RJ)",
+        "location": "Barra Mansa (RJ)",
+        "source": ""
+    },
+    {
+        "name": "Mobilizadora",
+        "initials": "MO",
+        "role": "Mobilizadora do sindicato rural de Santa Maria Madalena",
+        "content": "Agradecemos imensamente ao SENAR Rio, aos professores e a todos os alunos que caminharam conosco ao longo do Circuito Artesanal de Alimentos. Encerramos essa jornada com o último módulo - Gestão do Negócio, ministrado pelo professor Roberto Marinho, que trouxe orientações valiosas para fortalecer e profissionalizar ainda mais os empreendimentos de cada participante. Foi um fechamento repleto de aprendizado e inspiração!",
+        "service": "Serviço prestado para o SENAR Santa Maria Madalena (RJ)",
+        "location": "Santa Maria Madalena (RJ)",
+        "source": ""
+    },
+    {
+        "name": "Participante",
+        "initials": "PA",
+        "role": "Participante do Projeto Aprendiz do Sucesso",
+        "content": "Professor, boa noite. Passando só para informar que sua aula foi excelente, principalmente para mim. Fui pronta para abrir mão da minha vaga, apesar de estar só começando... Eu não estou com psicólogo muito bom devido umas coisas acontecendo. A aula de hoje me fez permanecer e fiquei bem feliz. Obrigado.",
+        "service": "Serviço prestado para o IBAM no Projeto Aprendiz do Sucesso em Seropédica (RJ)",
+        "location": "Seropédica (RJ)",
+        "source": ""
+    },
+    {
+        "name": "Alef de Oliveira",
+        "initials": "AO",
+        "role": "Estudante (7 anos)",
+        "content": "Eu achei muito legal, gostei porque tem que ajudar a natureza.",
+        "service": "Serviço prestado para o Programa Limpa Rio Comunidade do INEA",
+        "location": "São Pedro da Aldeia (RJ)",
+        "source": "https://pmspa.rj.gov.br/atividade-de-conscientizacao-ambiental-movimenta-o-cras-alecrim/",
+        "context": "Atividade de conscientização ambiental conduzida por Sabrina Mesquita."
+    }
+]
