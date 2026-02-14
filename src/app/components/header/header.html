@@ -32,10 +32,32 @@
                     Fale Conosco
                 </a>
             </div>
-            <div class="md:hidden flex items-center">
-                <button class="text-base-content hover:text-primary">
-                    <span class="material-symbols-outlined text-3xl">menu</span>
+            <div class="md:hidden flex items-center gap-4">
+                <button
+                    class="flex items-center text-base-content hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
+                    (click)="toggleTheme()">
+                    <span class="material-symbols-outlined">{{ (isDark$ | async) ? 'light_mode' : 'dark_mode' }}</span>
                 </button>
+                <button class="text-base-content hover:text-primary transition-colors" (click)="toggleMenu()">
+                    <span class="material-symbols-outlined text-3xl">{{ isMenuOpen ? 'close' : 'menu' }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
+        [class.max-h-96]="isMenuOpen" [class.border-t]="isMenuOpen" [class.border-base-content/10]="isMenuOpen">
+        <div class="px-4 pt-2 pb-6 space-y-2 bg-base-100/95 backdrop-blur-md">
+            <a class="block px-3 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-lg transition"
+                [routerLink]="routes.services.fullPath" (click)="isMenuOpen = false">Serviços</a>
+            <a class="block px-3 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-lg transition"
+                [routerLink]="routes.about.fullPath" (click)="isMenuOpen = false">Sobre</a>
+            <div class="pt-4">
+                <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-4 rounded-xl font-bold shadow-lg transition"
+                    [routerLink]="routes.home.fullPath" fragment="contact" (click)="isMenuOpen = false">
+                    Fale Conosco
+                </a>
             </div>
         </div>
     </div>

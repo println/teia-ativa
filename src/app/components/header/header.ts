@@ -19,10 +19,15 @@ export class Header {
   private uiStore = inject(UiStore);
   isDark$ = this.uiStore.isDark$;
   routes = ROUTES;
+  isMenuOpen = false;
 
   constructor() { }
 
   toggleTheme() {
     this.uiStore.toggleTheme();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }
