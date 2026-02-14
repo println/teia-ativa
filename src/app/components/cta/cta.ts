@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppSettings } from '../../config/app.config';
@@ -14,6 +14,7 @@ export class Cta {
   contacts = AppSettings.contacts;
   generalContact = AppSettings.contact;
   selectedContact = this.contacts[0];
+  @ViewChild('nameInput') nameInput!: ElementRef<HTMLInputElement>;
 
   baseMessage = 'Vim pelo site da Teia Ativa e gostaria de falar com um especialista sobre as consultorias e treinamentos para minha organização';
 
@@ -27,6 +28,7 @@ export class Cta {
 
   selectContact(contact: any) {
     this.selectedContact = contact;
+    this.nameInput.nativeElement.focus();
   }
 
   toggleOrg(org: string) {

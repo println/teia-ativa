@@ -55,19 +55,19 @@ export const AppSettings: AppConfig = {
     },
     contacts: [
         {
-            name: 'Suzan',
+            name: 'Suzan Costa',
             whatsapp: '5521977442014',
             email: 'contato@teiaativa.com.br',
             image: 'images/profiles/profile-suzan.png'
         },
         {
-            name: 'Roberto',
+            name: 'Roberto Marinho',
             whatsapp: '5521975317968',
             email: 'contato@teiaativa.com.br',
             image: 'images/profiles/profile-roberto.jpg'
         },
         {
-            name: 'Sabrina',
+            name: 'Sabrina Mesquita',
             whatsapp: '5522998260246',
             email: 'contato@teiaativa.com.br',
             image: 'images/profiles/profile-sabrina.jpg'
