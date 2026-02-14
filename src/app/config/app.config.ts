@@ -2,6 +2,10 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from '../app.routes';
+import suzanProfile from '../../../public/assets/profiles/profile_suzan.json';
+import robertoProfile from '../../../public/assets/profiles/profile_roberto.json';
+import sabrinaProfile from '../../../public/assets/profiles/profile_sabrina.json';
+
 
 // Placeholder for routes if not yet fully implemented
 // const routes: any[] = [];
@@ -55,22 +59,22 @@ export const AppSettings: AppConfig = {
     },
     contacts: [
         {
-            name: 'Suzan Costa',
-            whatsapp: '5521977442014',
-            email: 'contato@teiaativa.com.br',
-            image: 'images/profiles/profile-suzan.png'
+            name: suzanProfile.name,
+            whatsapp: suzanProfile.whatsapp,
+            email: suzanProfile.email,
+            image: suzanProfile.image
         },
         {
-            name: 'Roberto Marinho',
-            whatsapp: '5521975317968',
-            email: 'contato@teiaativa.com.br',
-            image: 'images/profiles/profile-roberto.jpg'
+            name: robertoProfile.name,
+            whatsapp: robertoProfile.whatsapp,
+            email: robertoProfile.email,
+            image: robertoProfile.image
         },
         {
-            name: 'Sabrina Mesquita',
-            whatsapp: '5522998260246',
-            email: 'contato@teiaativa.com.br',
-            image: 'images/profiles/profile-sabrina.jpg'
+            name: sabrinaProfile.name,
+            whatsapp: sabrinaProfile.whatsapp,
+            email: sabrinaProfile.email,
+            image: sabrinaProfile.image
         },
     ],
     social: {
