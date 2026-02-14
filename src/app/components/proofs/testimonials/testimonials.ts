@@ -18,7 +18,7 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, Partners, Carousel],
+  imports: [CommonModule, Carousel],
   templateUrl: './testimonials.html',
   styleUrl: './testimonials.scss',
 })

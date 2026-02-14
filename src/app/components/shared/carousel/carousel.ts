@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, AfterViewInit, ViewChild, OnDestroy, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { register } from 'swiper/element/bundle';
 
@@ -16,6 +16,8 @@ register();
 export class Carousel implements AfterViewInit, OnDestroy {
   @ViewChild('swiperContainer', { static: false }) swiperContainer?: ElementRef<any>;
   @ViewChild('contentWrapper', { static: false }) contentWrapper?: ElementRef<HTMLDivElement>;
+
+  @Input() mobileOnly: boolean = false;
 
   private observer?: MutationObserver;
 
@@ -76,10 +78,11 @@ export class Carousel implements AfterViewInit, OnDestroy {
     });
 
     // Configurar e inicializar o Swiper
-    Object.assign(swiperEl, {
+    const config: any = {
       slidesPerView: 1,
       spaceBetween: 32,
       centeredSlides: true,
+      loop: true,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
@@ -103,7 +106,18 @@ export class Carousel implements AfterViewInit, OnDestroy {
           centeredSlides: false,
         },
       },
-    });
+    };
+
+    if (this.mobileOnly) {
+      config.breakpoints = {
+        768: {
+          enabled: false,
+        }
+      };
+      // Disable autoplay on desktop if mobileOnly (though enabled: false handles it, good to be safe)
+    }
+
+    Object.assign(swiperEl, config);
 
     swiperEl.initialize();
   }
