@@ -1,10 +1,5 @@
-<div class="relative">
-    <!-- Content projection area -->
-    <div #contentWrapper style="display: none;">
-        <ng-content></ng-content>
-    </div>
-
-    <!-- Swiper Container -->
-    <swiper-container #swiperContainer init="false" class="carousel-swiper">
-    </swiper-container>
-</div>
+<swiper-container #swiperContainer init="false" class="carousel-swiper">
+    <swiper-slide *ngFor="let item of slides">
+        <ng-container *ngTemplateOutlet="item.template"></ng-container>
+    </swiper-slide>
+</swiper-container>

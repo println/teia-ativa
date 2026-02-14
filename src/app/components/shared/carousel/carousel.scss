@@ -5,6 +5,8 @@
 .carousel-swiper {
     width: 100%;
     margin-top: 1rem;
+    padding: 0;
+    box-sizing: border-box;
 
     // Forçar variáveis CSS do Swiper
     --swiper-navigation-color: var(--color-primary);
@@ -12,6 +14,13 @@
     --swiper-pagination-bullet-inactive-color: rgba(0, 0, 0, 0.3);
     --swiper-pagination-bullet-inactive-opacity: 1;
     --swiper-navigation-size: 24px;
+
+    --swiper-pagination-left: auto;
+    --swiper-pagination-right: 8px;
+    --swiper-pagination-bottom: 8px;
+    --swiper-pagination-top: auto;
+
+
 
     // Customizar navegação (setas)
     ::part(button-prev),
@@ -69,17 +78,31 @@
         border-radius: 4px;
     }
 
+    &::part(container) {
+        padding-bottom: 60px;
+        margin-left: -30px;
+        padding-left: 30px;
+        margin-right: -30px;
+        padding-right: 30px;
+    }
+
     // Garantir altura consistente dos slides
     swiper-slide {
         height: auto;
-        display: flex;
-        padding: 8px 0;
-        margin-bottom: 50px;
+        display: flex !important; // Para o height: 100% do card funcionar
+        flex-direction: column;
+        box-sizing: border-box;
 
         >div {
             width: 100%;
+            height: 100%;
+            max-width: 100%; // Impedir vazamento horizontal
+            display: flex;
+            flex-direction: column;
         }
     }
+
+
 }
 
 // Dark mode - usar accent ao invés de primary
@@ -117,6 +140,14 @@
 
         ::part(bullet-active) {
             width: 28px;
+        }
+
+        &::part(container) {
+            padding-bottom: 30px;
+            margin-left: -15px;
+            padding-left: 15px;
+            margin-right: -15px;
+            padding-right: 15px;
         }
     }
 }

@@ -1,8 +1,18 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, AfterViewInit, ViewChild, OnDestroy, Input } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ContentChildren,
+  QueryList,
+  AfterContentInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  Input
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { register } from 'swiper/element/bundle';
+import { CarouselItem } from './carousel-item';
 
-// Register Swiper web components
 register();
 
 @Component({
@@ -13,71 +23,49 @@ register();
   styleUrl: './carousel.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Carousel implements AfterViewInit, OnDestroy {
-  @ViewChild('swiperContainer', { static: false }) swiperContainer?: ElementRef<any>;
-  @ViewChild('contentWrapper', { static: false }) contentWrapper?: ElementRef<HTMLDivElement>;
+export class Carousel implements AfterContentInit, OnDestroy {
+
+  @ContentChildren(CarouselItem)
+  items!: QueryList<CarouselItem>;
+
+  @ViewChild('swiperContainer', { static: true })
+  swiperContainer!: ElementRef<any>;
 
   @Input() mobileOnly: boolean = false;
 
-  private observer?: MutationObserver;
+  slides: CarouselItem[] = [];
 
-  ngAfterViewInit() {
-    // Use MutationObserver to wait for content to be projected
-    if (this.contentWrapper) {
-      this.observer = new MutationObserver(() => {
-        this.initializeCarousel();
-      });
+  ngAfterContentInit() {
+    this.updateSlides();
 
-      this.observer.observe(this.contentWrapper.nativeElement, {
-        childList: true,
-        subtree: true
-      });
+    // Escutar mudanças nos itens (importante para dados dinâmicos/HMR)
+    this.items.changes.subscribe(() => {
+      this.updateSlides();
+    });
+  }
 
-      // Also try immediately in case content is already there
-      setTimeout(() => this.initializeCarousel(), 100);
-    }
+  private updateSlides() {
+    this.slides = this.items.toArray();
+    queueMicrotask(() => this.initializeSwiper());
   }
 
   ngOnDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
+    const swiperEl = this.swiperContainer?.nativeElement;
+
+    if (swiperEl?.swiper) {
+      swiperEl.swiper.destroy(true, true);
     }
   }
 
-  private initializeCarousel() {
-    if (!this.swiperContainer || !this.contentWrapper) {
-      return;
-    }
-
+  private initializeSwiper() {
     const swiperEl = this.swiperContainer.nativeElement;
-    const wrapper = this.contentWrapper.nativeElement;
 
-    // Pegar todos os filhos diretos do wrapper (os divs projetados)
-    const items = Array.from(wrapper.children) as HTMLElement[];
-
-    if (items.length === 0) {
-      return; // Silently return if no items yet
+    // 1. Destruir instância anterior completamente
+    if (swiperEl.swiper) {
+      swiperEl.swiper.destroy(true, true);
     }
 
-    // Check if already initialized
-    if (swiperEl.children.length > 0) {
-      return; // Already initialized
-    }
-
-    // Disconnect observer once we have content
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-
-    // Adicionar cada item como um swiper-slide
-    items.forEach(item => {
-      const slide = document.createElement('swiper-slide');
-      // Mover o item para dentro do slide
-      slide.appendChild(item);
-      swiperEl.appendChild(slide);
-    });
-
-    // Configurar e inicializar o Swiper
+    // 2. Configuração
     const config: any = {
       slidesPerView: 1,
       spaceBetween: 32,
@@ -88,37 +76,27 @@ export class Carousel implements AfterViewInit, OnDestroy {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },
-      pagination: {
-        clickable: true,
-      },
+      pagination: { clickable: true },
       navigation: true,
       breakpoints: {
-        640: {
-          slidesPerView: 1.5,
-          centeredSlides: true,
-        },
-        768: {
-          slidesPerView: 2,
-          centeredSlides: false,
-        },
-        1024: {
-          slidesPerView: 3,
-          centeredSlides: false,
-        },
+        640: { slidesPerView: 1.5, centeredSlides: true },
+        768: { slidesPerView: 2, centeredSlides: false },
+        1024: { slidesPerView: 3, centeredSlides: false },
       },
     };
 
     if (this.mobileOnly) {
       config.breakpoints = {
-        768: {
-          enabled: false,
-        }
+        768: { enabled: false }
       };
-      // Disable autoplay on desktop if mobileOnly (though enabled: false handles it, good to be safe)
     }
 
+    // 3. Aplicar configuração e inicializar com garantia de limpeza
     Object.assign(swiperEl, config);
 
-    swiperEl.initialize();
+    // Usar setTimeout para garantir que o stack de execução limpou
+    setTimeout(() => {
+      swiperEl.initialize();
+    }, 50);
   }
 }

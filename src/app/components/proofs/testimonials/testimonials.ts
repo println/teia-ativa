@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Partners } from '../partners/partners';
 import { Carousel } from '../../shared/carousel/carousel';
+import { CarouselItem } from '../../shared/carousel/carousel-item';
 
 interface Testimonial {
   name: string;
@@ -18,7 +19,7 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, Carousel],
+  imports: [CommonModule, Carousel, CarouselItem],
   templateUrl: './testimonials.html',
   styleUrl: './testimonials.scss',
 })

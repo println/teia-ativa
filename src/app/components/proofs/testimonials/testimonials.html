@@ -6,57 +6,59 @@
 
         <app-carousel>
             @for (item of testimonials; track item.name) {
-            <div
-                class="h-full bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col">
-                <div class="flex text-accent mb-6">
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                    <span class="material-symbols-outlined text-sm"
-                        style="font-variation-settings: 'FILL' 1">star</span>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 italic mb-4 flex-grow leading-relaxed">
-                    "{{ item.content }}"
-                </p>
-                <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
-                    <div
-                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content dark:text-white font-bold text-lg flex-shrink-0">
-                        {{ item.initials }}</div>
-                    <div class="flex-1 min-w-0">
-                        <p class="font-bold text-gray-900 dark:text-white truncate" [title]="item.name">{{ item.name
-                            }}
-                        </p>
-                        <p class="text-[10px] text-primary dark:text-accent font-bold uppercase tracking-wider truncate"
-                            [title]="item.service">
-                            {{ item.service }}
-                        </p>
-                        <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wide truncate"
-                            [title]="item.role">{{
-                            item.role }}</p>
-                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
-                            @if (item.location) {
-                            <span class="text-[10px] text-gray-400 dark:text-gray-300 flex items-center gap-0.5"
-                                [title]="item.location">
-                                <span class="material-symbols-outlined text-[12px]">location_on</span>
-                                {{ item.location }}
-                            </span>
-                            }
-                            @if (item.source) {
-                            <a [href]="item.source" target="_blank"
-                                class="text-[10px] text-accent dark:text-accent-light hover:underline flex items-center gap-0.5 ml-auto">
-                                <span class="material-symbols-outlined text-[12px]">link</span>
-                                Fonte
-                            </a>
-                            }
+            <app-carousel-item>
+                <div
+                    class="h-full bg-white dark:bg-background-dark p-8 rounded-br-3xl rounded-tl-3xl shadow-soft hover:shadow-lg transition flex flex-col testimonial-card-content">
+                    <div class="flex text-accent mb-6">
+                        <span class="material-symbols-outlined text-sm"
+                            style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-sm"
+                            style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-sm"
+                            style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-sm"
+                            style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-sm"
+                            style="font-variation-settings: 'FILL' 1">star</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic mb-4 flex-grow leading-relaxed">
+                        "{{ item.content }}"
+                    </p>
+                    <div class="flex items-center gap-4 border-t border-gray-100 dark:border-gray-700 pt-6">
+                        <div
+                            class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-content dark:text-white font-bold text-lg flex-shrink-0">
+                            {{ item.initials }}</div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-gray-900 dark:text-white truncate" [title]="item.name">{{ item.name
+                                }}
+                            </p>
+                            <p class="text-[10px] text-primary dark:text-accent font-bold uppercase tracking-wider truncate"
+                                [title]="item.service">
+                                {{ item.service }}
+                            </p>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wide truncate"
+                                [title]="item.role">{{
+                                item.role }}</p>
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
+                                @if (item.location) {
+                                <span class="text-[10px] text-gray-400 dark:text-gray-300 flex items-center gap-0.5"
+                                    [title]="item.location">
+                                    <span class="material-symbols-outlined text-[12px]">location_on</span>
+                                    {{ item.location }}
+                                </span>
+                                }
+                                @if (item.source) {
+                                <a [href]="item.source" target="_blank"
+                                    class="text-[10px] text-accent dark:text-accent-light hover:underline flex items-center gap-0.5 ml-auto">
+                                    <span class="material-symbols-outlined text-[12px]">link</span>
+                                    Fonte
+                                </a>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </app-carousel-item>
             }
         </app-carousel>
     </div>
