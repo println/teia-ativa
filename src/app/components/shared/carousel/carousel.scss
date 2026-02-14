@@ -1,40 +1,122 @@
-.carousel-container {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 
-    &::-webkit-scrollbar {
-        display: none;
-        /* Chrome, Safari and Opera */
+.carousel-swiper {
+    width: 100%;
+    margin-top: 1rem;
+
+    // Forçar variáveis CSS do Swiper
+    --swiper-navigation-color: var(--color-primary);
+    --swiper-pagination-color: var(--color-primary);
+    --swiper-pagination-bullet-inactive-color: rgba(0, 0, 0, 0.3);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-navigation-size: 24px;
+
+    // Customizar navegação (setas)
+    ::part(button-prev),
+    ::part(button-next) {
+        width: 48px;
+        height: 48px;
+        background: var(--color-primary);
+        border-radius: 50%;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            background: var(--color-primary);
+            opacity: 0.9;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+            transform: scale(1.05);
+        }
+
+        &:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
     }
 
-    /* Smooth scrolling behavior */
-    scroll-behavior: smooth;
+    // Posicionar setas melhor no desktop
+    @media (min-width: 768px) {
+        ::part(button-prev) {
+            left: -20px;
+        }
 
-    /* Prevent text selection while dragging */
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+        ::part(button-next) {
+            right: -20px;
+        }
+    }
 
-    /* Prevent image dragging */
-    img {
-        pointer-events: none;
-        user-select: none;
+    // Customizar paginação (indicadores/dots)
+    ::part(pagination) {
+        bottom: 0;
+    }
+
+    ::part(bullet) {
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            transform: scale(1.25);
+        }
+    }
+
+    ::part(bullet-active) {
+        width: 32px;
+        border-radius: 4px;
+    }
+
+    // Garantir altura consistente dos slides
+    swiper-slide {
+        height: auto;
+        display: flex;
+        padding: 8px 0;
+        margin-bottom: 50px;
+
+        >div {
+            width: 100%;
+        }
     }
 }
 
-/* Cursor styles */
-.cursor-grab {
-    cursor: grab;
+// Dark mode - usar accent ao invés de primary
+:root[data-theme="teia-ativa-original-dark"],
+.dark {
+    .carousel-swiper {
+        --swiper-navigation-color: var(--color-accent);
+        --swiper-pagination-color: var(--color-accent);
+        --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.2);
+
+        ::part(button-prev),
+        ::part(button-next) {
+            background: var(--color-accent);
+        }
+    }
 }
 
-.cursor-grabbing {
-    cursor: grabbing;
-}
+// Mobile: esconder setas, aumentar dots
+@media (max-width: 768px) {
+    .carousel-swiper {
 
-/* Ensure smooth transitions */
-button {
-    transition: all 0.3s ease;
+        ::part(button-prev),
+        ::part(button-next) {
+            display: none;
+        }
+
+        ::part(pagination) {
+            bottom: -8px;
+        }
+
+        ::part(bullet) {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::part(bullet-active) {
+            width: 28px;
+        }
+    }
 }

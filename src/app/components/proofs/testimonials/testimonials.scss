@@ -1,0 +1,16 @@
+// Estilos específicos do componente testimonials
+// Os estilos do carousel/swiper estão em carousel.scss
+
+// Garantir que todos os cards tenham a mesma altura
+:host ::ng-deep {
+    swiper-slide {
+        height: auto !important;
+        margin-bottom: 50px;
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            min-height: 450px; // Altura mínima para consistência
+        }
+    }
+}

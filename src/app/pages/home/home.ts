@@ -8,6 +8,7 @@ import { Authority } from '../../components/proofs/authority/authority';
 import { Stats } from '../../components/proofs/stats/stats';
 import { Guarantee } from '../../components/proofs/guarantee/guarantee';
 import { Cta } from '../../components/cta/cta';
+import { Partners } from "@app/components/proofs/partners/partners";
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ import { Cta } from '../../components/cta/cta';
     Authority,
     Stats,
     Guarantee,
-    Cta
+    Cta,
+    Partners
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',

@@ -1,5 +1,9 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, AfterContentInit, Input, OnDestroy, ChangeDetectorRef, NgZone, HostListener, ContentChildren, QueryList } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, AfterViewInit, ViewChild, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { register } from 'swiper/element/bundle';
+
+// Register Swiper web components
+register();
 
 @Component({
   selector: 'app-carousel',
@@ -7,233 +11,100 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './carousel.html',
   styleUrl: './carousel.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Carousel implements AfterViewInit, AfterContentInit, OnDestroy {
-  @ViewChild('carouselContainer') carouselContainer!: ElementRef<HTMLDivElement>;
-  @ContentChildren('carouselItem', { descendants: true }) items?: QueryList<any>;
+export class Carousel implements AfterViewInit, OnDestroy {
+  @ViewChild('swiperContainer', { static: false }) swiperContainer?: ElementRef<any>;
+  @ViewChild('contentWrapper', { static: false }) contentWrapper?: ElementRef<HTMLDivElement>;
 
-  @Input() itemWidth: number = 350; // largura padrão de cada item
-  @Input() gap: number = 32; // gap padrão entre items (8 * 4 = 32px para gap-8)
-
-  currentIndex = 0;
-  totalItemsCount = 0;
-  visibleItems = 1;
-  totalPages = 1;
-  isDragging = false;
-  startX = 0;
-  scrollLeft = 0;
-  private resizeObserver?: ResizeObserver;
-
-  constructor(
-    private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
-  ) { }
-
-  @HostListener('window:resize')
-  onWindowResize() {
-    this.updateCarouselMetrics();
-  }
-
-  ngAfterContentInit() {
-    this.updateItemsCount();
-    this.items?.changes.subscribe(() => {
-      this.updateItemsCount();
-      this.updateCarouselMetrics();
-    });
-  }
+  private observer?: MutationObserver;
 
   ngAfterViewInit() {
-    // Pequeno timeout para garantir que o DOM renderizou e tem dimensões
-    this.ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
-        this.ngZone.run(() => {
-          this.updateCarouselMetrics();
-          this.setupResizeObserver();
-        });
-      }, 300);
-    });
+    // Use MutationObserver to wait for content to be projected
+    if (this.contentWrapper) {
+      this.observer = new MutationObserver(() => {
+        this.initializeCarousel();
+      });
+
+      this.observer.observe(this.contentWrapper.nativeElement, {
+        childList: true,
+        subtree: true
+      });
+
+      // Also try immediately in case content is already there
+      setTimeout(() => this.initializeCarousel(), 100);
+    }
   }
 
   ngOnDestroy() {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
+    if (this.observer) {
+      this.observer.disconnect();
     }
   }
 
-  private updateItemsCount() {
-    if (this.items && this.items.length > 0) {
-      this.totalItemsCount = this.items.length;
-    } else if (this.carouselContainer) {
-      this.totalItemsCount = this.carouselContainer.nativeElement.children.length;
+  private initializeCarousel() {
+    if (!this.swiperContainer || !this.contentWrapper) {
+      return;
     }
-  }
 
-  private setupResizeObserver() {
-    this.resizeObserver = new ResizeObserver(() => {
-      this.ngZone.run(() => {
-        this.updateCarouselMetrics();
-      });
+    const swiperEl = this.swiperContainer.nativeElement;
+    const wrapper = this.contentWrapper.nativeElement;
+
+    // Pegar todos os filhos diretos do wrapper (os divs projetados)
+    const items = Array.from(wrapper.children) as HTMLElement[];
+
+    if (items.length === 0) {
+      return; // Silently return if no items yet
+    }
+
+    // Check if already initialized
+    if (swiperEl.children.length > 0) {
+      return; // Already initialized
+    }
+
+    // Disconnect observer once we have content
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    // Adicionar cada item como um swiper-slide
+    items.forEach(item => {
+      const slide = document.createElement('swiper-slide');
+      // Mover o item para dentro do slide
+      slide.appendChild(item);
+      swiperEl.appendChild(slide);
     });
-    if (this.carouselContainer) {
-      this.resizeObserver.observe(this.carouselContainer.nativeElement);
 
-      // Adicionar listener de scroll para atualizar pontos em tempo real
-      this.carouselContainer.nativeElement.addEventListener('scroll', () => {
-        if (!this.isDragging) { // Durante o drag, nós mesmos controlamos a atualização
-          this.ngZone.run(() => {
-            this.updateCurrentIndexFromScroll(false);
-          });
-        }
-      }, { passive: true });
-    }
-  }
+    // Configurar e inicializar o Swiper
+    Object.assign(swiperEl, {
+      slidesPerView: 1,
+      spaceBetween: 32,
+      centeredSlides: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      pagination: {
+        clickable: true,
+      },
+      navigation: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 1.5,
+          centeredSlides: true,
+        },
+        768: {
+          slidesPerView: 2,
+          centeredSlides: false,
+        },
+        1024: {
+          slidesPerView: 3,
+          centeredSlides: false,
+        },
+      },
+    });
 
-  private updateCarouselMetrics() {
-    if (this.carouselContainer) {
-      const container = this.carouselContainer.nativeElement;
-      const containerWidth = container.offsetWidth;
-
-      if (containerWidth === 0) return;
-
-      this.updateItemsCount();
-
-      // Calcular quantos itens são visíveis por vez
-      this.visibleItems = Math.floor((containerWidth + this.gap) / (this.itemWidth + this.gap));
-      if (this.visibleItems < 1) this.visibleItems = 1;
-
-      // Calcular total de páginas (granular: item por item)
-      this.totalPages = Math.max(1, this.totalItemsCount - this.visibleItems + 1);
-
-      // Ajustar currentIndex se estiver fora do range
-      if (this.currentIndex >= this.totalPages) {
-        this.currentIndex = Math.max(0, this.totalPages - 1);
-      }
-
-      this.cdr.detectChanges();
-    }
-  }
-
-  get indicators(): number[] {
-    return Array.from({ length: this.totalPages }, (_, i) => i);
-  }
-
-  get canGoNext(): boolean {
-    return this.currentIndex < this.totalPages - 1;
-  }
-
-  get canGoPrev(): boolean {
-    return this.currentIndex > 0;
-  }
-
-  next() {
-    if (this.canGoNext) {
-      this.currentIndex++;
-      this.scrollToIndex(this.currentIndex);
-    }
-  }
-
-  prev() {
-    if (this.canGoPrev) {
-      this.currentIndex--;
-      this.scrollToIndex(this.currentIndex);
-    }
-  }
-
-  goToSlide(index: number) {
-    this.currentIndex = index;
-    this.scrollToIndex(index);
-  }
-
-  private scrollToIndex(index: number) {
-    if (this.carouselContainer) {
-      const container = this.carouselContainer.nativeElement;
-      // Scroll agora é item por item
-      const scrollPosition = index * (this.itemWidth + this.gap);
-      container.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      });
-    }
-  }
-
-  // Drag handlers
-  onMouseDown(event: MouseEvent) {
-    this.isDragging = true;
-    this.startX = event.pageX - this.carouselContainer.nativeElement.offsetLeft;
-    this.scrollLeft = this.carouselContainer.nativeElement.scrollLeft;
-    // Desativar scroll suave temporariamente durante o drag manual para maior precisão
-    this.carouselContainer.nativeElement.style.scrollBehavior = 'auto';
-  }
-
-  onMouseMove(event: MouseEvent) {
-    if (!this.isDragging) return;
-    event.preventDefault();
-    const x = event.pageX - this.carouselContainer.nativeElement.offsetLeft;
-    const walk = (x - this.startX) * 2;
-    this.carouselContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
-
-    // Atualizar indicadores em tempo real durante o movimento
-    this.updateCurrentIndexFromScroll(false);
-  }
-
-  onMouseUp() {
-    if (!this.isDragging) return;
-    this.isDragging = false;
-    this.carouselContainer.nativeElement.style.scrollBehavior = 'smooth';
-    // Faz o snap (ajuste) para o item mais próximo ao soltar
-    this.snapToNearestPage();
-  }
-
-  onMouseLeave() {
-    if (this.isDragging) {
-      this.onMouseUp();
-    }
-  }
-
-  // Touch handlers
-  onTouchStart(event: TouchEvent) {
-    this.isDragging = true;
-    this.startX = event.touches[0].pageX - this.carouselContainer.nativeElement.offsetLeft;
-    this.scrollLeft = this.carouselContainer.nativeElement.scrollLeft;
-    this.carouselContainer.nativeElement.style.scrollBehavior = 'auto';
-  }
-
-  onTouchMove(event: TouchEvent) {
-    if (!this.isDragging) return;
-    const x = event.touches[0].pageX - this.carouselContainer.nativeElement.offsetLeft;
-    const walk = (x - this.startX) * 2;
-    this.carouselContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
-
-    this.updateCurrentIndexFromScroll(false);
-  }
-
-  onTouchEnd() {
-    if (!this.isDragging) return;
-    this.isDragging = false;
-    this.carouselContainer.nativeElement.style.scrollBehavior = 'smooth';
-    this.snapToNearestPage();
-  }
-
-  private snapToNearestPage() {
-    this.updateCurrentIndexFromScroll(true);
-    this.scrollToIndex(this.currentIndex);
-  }
-
-  private updateCurrentIndexFromScroll(isFinal: boolean = false) {
-    if (this.carouselContainer) {
-      const container = this.carouselContainer.nativeElement;
-      const scrollPosition = container.scrollLeft;
-
-      // Cálculo por item individual (index representa o primeiro item à esquerda)
-      const itemStep = this.itemWidth + this.gap;
-      const newIndex = Math.round(scrollPosition / itemStep);
-
-      const safeIndex = Math.max(0, Math.min(newIndex, this.totalPages - 1));
-
-      if (this.currentIndex !== safeIndex) {
-        this.currentIndex = safeIndex;
-        this.cdr.detectChanges();
-      }
-    }
+    swiperEl.initialize();
   }
 }

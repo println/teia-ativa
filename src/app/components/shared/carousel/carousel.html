@@ -1,47 +1,10 @@
 <div class="relative">
-    <!-- Carousel Container -->
-    <div #carouselContainer
-        class="carousel-container flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 cursor-grab active:cursor-grabbing select-none"
-        (mousedown)="onMouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
-        (mouseleave)="onMouseLeave()" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
-        (touchend)="onTouchEnd()">
+    <!-- Content projection area -->
+    <div #contentWrapper style="display: none;">
         <ng-content></ng-content>
     </div>
 
-    <!-- Navigation Controls (Desktop) -->
-    <div class="hidden md:flex items-center gap-4 mt-8">
-        <!-- Previous Button -->
-        <button (click)="prev()" [disabled]="!canGoPrev"
-            class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center transition-all duration-300 hover:bg-primary/90 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-primary shadow-md hover:shadow-lg"
-            aria-label="Anterior">
-            <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-
-        <!-- Indicators -->
-        <div class="flex gap-2">
-            <button *ngFor="let indicator of indicators; let i = index" (click)="goToSlide(i)"
-                [class.bg-primary]="i === currentIndex" [class.bg-gray-300]="i !== currentIndex"
-                [class.dark:bg-gray-600]="i !== currentIndex"
-                class="w-2 h-2 rounded-full transition-all duration-300 hover:scale-125"
-                [attr.aria-label]="'Ir para slide ' + (i + 1)"
-                [attr.aria-current]="i === currentIndex ? 'true' : 'false'">
-            </button>
-        </div>
-
-        <!-- Next Button -->
-        <button (click)="next()" [disabled]="!canGoNext"
-            class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center transition-all duration-300 hover:bg-primary/90 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-primary shadow-md hover:shadow-lg"
-            aria-label="Próximo">
-            <span class="material-symbols-outlined">chevron_right</span>
-        </button>
-    </div>
-
-    <!-- Mobile Indicators Only -->
-    <div class="flex md:hidden justify-center gap-2 mt-6">
-        <button *ngFor="let indicator of indicators; let i = index" (click)="goToSlide(i)"
-            [class.bg-primary]="i === currentIndex" [class.bg-gray-300]="i !== currentIndex"
-            [class.dark:bg-gray-600]="i !== currentIndex" class="w-2 h-2 rounded-full transition-all duration-300"
-            [attr.aria-label]="'Ir para slide ' + (i + 1)" [attr.aria-current]="i === currentIndex ? 'true' : 'false'">
-        </button>
-    </div>
+    <!-- Swiper Container -->
+    <swiper-container #swiperContainer init="false" class="carousel-swiper">
+    </swiper-container>
 </div>
