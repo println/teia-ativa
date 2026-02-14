@@ -7,7 +7,7 @@
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-Light.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -15,7 +15,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -23,7 +23,7 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-Medium.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -31,7 +31,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -39,7 +39,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-Bold.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -47,7 +47,7 @@
     font-style: normal;
     font-weight: 800;
     font-display: swap;
-    src: url('assets/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    src: url('../public/assets/fonts/Montserrat-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -55,7 +55,7 @@
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url('assets/fonts/OpenSans-Light.ttf') format('truetype');
+    src: url('../public/assets/fonts/OpenSans-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -63,7 +63,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('assets/fonts/OpenSans-Regular.ttf') format('truetype');
+    src: url('../public/assets/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -71,7 +71,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url('assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
+    src: url('../public/assets/fonts/OpenSans-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
@@ -79,7 +79,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('assets/fonts/OpenSans-Bold.ttf') format('truetype');
+    src: url('../public/assets/fonts/OpenSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -87,7 +87,7 @@
     font-style: normal;
     font-weight: 100 700;
     font-display: swap;
-    src: url('assets/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
+    src: url('../public/assets/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
 }
 
 .material-symbols-outlined {
