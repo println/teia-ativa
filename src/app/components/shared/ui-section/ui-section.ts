@@ -29,4 +29,6 @@ export class UiSection {
     });
 
     @Input() flushMobile = false;
+
+    @Input() sectionClass = '';
 }
