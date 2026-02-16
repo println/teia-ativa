@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Partners } from '../partners/partners';
 import { Carousel } from '../../shared/carousel/carousel';
 import { CarouselItem } from '../../shared/carousel/carousel-item';
+import { UiSection, UiSectionHeaderDirective } from '@app/components/shared/ui-section/ui-section';
 
 interface Testimonial {
   name: string;
@@ -19,7 +20,7 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [CommonModule, Carousel, CarouselItem],
+  imports: [CommonModule, Carousel, CarouselItem, UiSection, UiSectionHeaderDirective],
   templateUrl: './testimonials.html',
   styleUrl: './testimonials.scss',
 })

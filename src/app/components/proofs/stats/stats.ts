@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { UiSection } from '../../shared/ui-section/ui-section';
 
 @Component({
     selector: 'app-stats',
     standalone: true,
-    imports: [],
+    imports: [UiSection],
     templateUrl: './stats.html',
     styleUrl: './stats.scss',
 })

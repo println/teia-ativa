@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { UiSection, UiSectionHeaderDirective } from '@app/components/shared/ui-section/ui-section';
 import { Profile } from './profile.model';
 import { ProfileService } from './profile.service';
 
@@ -9,7 +9,7 @@ import { ProfileService } from './profile.service';
   templateUrl: './authority.html',
   styleUrl: './authority.scss',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, UiSection, UiSectionHeaderDirective],
   providers: [
     ProfileService
   ]

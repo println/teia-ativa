@@ -1,0 +1,16 @@
+<section class="py-24" [ngClass]="header() ? 'max-sm:pb-5' : ''">
+
+    <ng-content select="[background]"></ng-content>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" [ngClass]="flushMobile ? 'max-xs:px-0' : 'max-xs:px-1'">
+
+        @if (header()) {
+        <div class="text-center mb-16">
+            <ng-content select="[header]"></ng-content>
+        </div>
+        }
+
+        <ng-content></ng-content>
+
+    </div>
+</section>

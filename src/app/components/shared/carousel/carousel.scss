@@ -32,6 +32,7 @@
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
+
         &:hover {
             background: var(--color-primary);
             opacity: 0.9;
@@ -49,11 +50,12 @@
     // Posicionar setas melhor no desktop
     @media (min-width: 768px) {
         ::part(button-prev) {
-            left: -20px;
+            left: 6px;
+
         }
 
         ::part(button-next) {
-            right: -20px;
+            right: 6px;
         }
     }
 
@@ -109,13 +111,14 @@
 :root[data-theme="teia-ativa-original-dark"],
 .dark {
     .carousel-swiper {
-        --swiper-navigation-color: var(--color-accent);
-        --swiper-pagination-color: var(--color-accent);
+        --swiper-navigation-color: var(--color-accent) !important;
+        --swiper-pagination-color: var(--color-accent) !important;
         --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.2);
 
-        ::part(button-prev),
-        ::part(button-next) {
-            background: var(--color-accent);
+        &::part(button-prev),
+        &::part(button-next) {
+            background-color: var(--color-accent) !important;
+
         }
     }
 }
@@ -124,9 +127,12 @@
 @media (max-width: 768px) {
     .carousel-swiper {
 
-        ::part(button-prev),
-        ::part(button-next) {
-            display: none;
+        &::part(button-prev) {
+            left: 6px !important;
+        }
+
+        &::part(button-next) {
+            right: 6px !important;
         }
 
         ::part(pagination) {
