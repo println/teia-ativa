@@ -1,131 +1,126 @@
 <main>
     <!-- Hero Section -->
-    <section
-        class="relative bg-gradient-to-br from-primary via-primary/90 to-accent text-white pt-52 pb-32 overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
+    <app-ui-section sectionClass="!pt-52 !pb-32 bg-gradient-to-br from-primary via-primary/90 to-accent text-white"
+        class="text-white">
+        <div background class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
-                    Consultoria estratégica, formação de equipes e produção de materiais educativos para <span
-                        class="text-accent">Empresas, Escolas e Governo.</span>
-                </h1>
-            </div>
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+                Consultoria estratégica, formação de equipes e produção de materiais educativos para <span
+                    class="text-accent">Empresas, Escolas e Governo.</span>
+            </h1>
         </div>
-    </section>
+    </app-ui-section>
 
     <!-- Introdução -->
-    <section class="py-24 bg-white dark:bg-background-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-2xl md:text-3xl text-primary/80 dark:text-gray-300 leading-relaxed font-light">
-                    Atuamos em quatro eixos estratégicos: <span class="font-bold text-primary dark:text-white">Educação
-                        Socioambiental, Educação Empreendedora, Sustentabilidade Territorial e Educação para o
-                        Campo.</span>
-                </p>
-                <p class="mt-8 text-xl text-base-content/70 dark:text-gray-400">
-                    Nossas soluções integram a teoria à prática através de Metodologias Ativas.
-                </p>
-            </div>
+    <app-ui-section class="bg-white dark:bg-background-dark">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-2xl md:text-3xl text-primary/80 dark:text-gray-300 leading-relaxed font-light">
+                Atuamos em quatro eixos estratégicos: <span class="font-bold text-primary dark:text-white">Educação
+                    Socioambiental, Educação Empreendedora, Sustentabilidade Territorial e Educação para o
+                    Campo.</span>
+            </p>
+            <p class="mt-8 text-xl text-base-content/70 dark:text-gray-400">
+                Nossas soluções integram a teoria à prática através de Metodologias Ativas.
+            </p>
         </div>
-    </section>
+    </app-ui-section>
 
     <!-- Grid de Serviços -->
-    <section class="py-24 bg-neutral-50 dark:bg-surface-dark/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
+    <app-ui-section sectionClass="bg-neutral-50 dark:bg-surface-dark/50">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div
+                class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
                 <div
-                    class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
-                    <div
-                        class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined style-icon" style="font-size: 40px;">school</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Formação e Educação Corporativa
-                    </h3>
-                    <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
-                        Treinamentos presenciais e EAD, oficinas de ciência cidadã, mentorias para liderança
-                        empreendedora e jornadas formativas para engajamento de equipes e comunidades.
-                    </p>
+                    class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                    <span class="material-symbols-outlined style-icon" style="font-size: 40px;">school</span>
                 </div>
+                <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Formação e Educação Corporativa
+                </h3>
+                <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
+                    Treinamentos presenciais e EAD, oficinas de ciência cidadã, mentorias para liderança
+                    empreendedora e jornadas formativas para engajamento de equipes e comunidades.
+                </p>
+            </div>
 
-                <!-- Card 2 -->
+            <!-- Card 2 -->
+            <div
+                class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
                 <div
-                    class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
-                    <div
-                        class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined" style="font-size: 40px;">trending_up</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Consultoria Estratégica e ESG</h3>
-                    <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
-                        Diagnósticos socioambientais participativos, elaboração de Relatórios de Sustentabilidade
-                        (GRI/ODS), reestruturação de PEA/PEAT e consultoria para transição de cultura ESG.
-                    </p>
+                    class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                    <span class="material-symbols-outlined" style="font-size: 40px;">trending_up</span>
                 </div>
+                <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Consultoria Estratégica</h3>
+                <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
+                    Diagnósticos socioambientais participativos, elaboração de Relatórios de Sustentabilidade
+                    (GRI/ODS), reestruturação de PEA/PEAT e consultoria para transição de cultura.
+                </p>
+            </div>
 
-                <!-- Card 3 -->
+            <!-- Card 3 -->
+            <div
+                class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
                 <div
-                    class="bg-white dark:bg-surface-dark p-10 rounded-3xl shadow-xl shadow-primary/5 border border-primary/5 hover:border-accent/30 transition-all duration-500 group">
-                    <div
-                        class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
-                        <span class="material-symbols-outlined" style="font-size: 40px;">auto_stories</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Produção de Conteúdo e Materiais
-                    </h3>
-                    <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
-                        Criação de produtos tangíveis como cartilhas didáticas, e-books, roteirização de vídeos
-                        educativos, jogos pedagógicos e trilhas de aprendizagem personalizadas.
-                    </p>
+                    class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent group-hover:text-white transition-all duration-500">
+                    <span class="material-symbols-outlined" style="font-size: 40px;">auto_stories</span>
                 </div>
+                <h3 class="text-2xl font-bold mb-4 text-primary dark:text-white">Produção de Conteúdo e Materiais
+                </h3>
+                <p class="text-base-content/70 dark:text-gray-400 leading-relaxed">
+                    Criação de produtos tangíveis como cartilhas didáticas, e-books, roteirização de vídeos
+                    educativos, jogos pedagógicos e trilhas de aprendizagem personalizadas.
+                </p>
             </div>
         </div>
-    </section>
+    </app-ui-section>
 
     <!-- Públicos -->
-    <section class="py-24 bg-white dark:bg-background-dark">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-12 text-primary dark:text-white">Para quem trabalhamos:</h2>
+    <app-ui-section class="bg-gradient-to-br from-primary/30 to-accent/30">
+        <h2 header class="text-center text-3xl font-bold mb-12 text-primary dark:text-white">Para quem trabalhamos:</h2>
 
-            <div class="flex flex-wrap justify-center gap-12 md:gap-24">
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                        <span class="material-symbols-outlined" style="font-size: 48px;">school</span>
-                    </div>
-                    <span class="text-xl font-bold text-primary dark:text-white">Escolas</span>
-                    <span class="text-sm text-base-content/60">(Alinhamento à BNCC)</span>
+        <div class="flex flex-wrap justify-center gap-12 md:gap-24">
+            <div class="flex flex-col items-center gap-4">
+                <div
+                    class="w-24 h-24 rounded-full bg-primary/10 dark:bg-accent/10 flex items-center justify-center text-accent">
+                    <span class="material-symbols-outlined" style="font-size: 48px;">school</span>
                 </div>
+                <span class="text-xl font-bold text-primary dark:text-white">Escolas</span>
+                <span class="text-sm text-base-content/60">(Alinhamento à BNCC)</span>
+            </div>
 
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                        <span class="material-symbols-outlined" style="font-size: 48px;">business</span>
-                    </div>
-                    <span class="text-xl font-bold text-primary dark:text-white">Empresas</span>
-                    <span class="text-sm text-base-content/60">(Cultura ESG e Engajamento)</span>
+            <div class="flex flex-col items-center gap-4">
+                <div
+                    class="w-24 h-24 rounded-full bg-primary/10 dark:bg-accent/10 flex items-center justify-center text-accent">
+                    <span class="material-symbols-outlined" style="font-size: 48px;">business</span>
                 </div>
+                <span class="text-xl font-bold text-primary dark:text-white">Empresas</span>
+                <span class="text-sm text-base-content/60">(Cultura e Engajamento)</span>
+            </div>
 
-                <div class="flex flex-col items-center gap-4">
-                    <div class="w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                        <span class="material-symbols-outlined" style="font-size: 48px;">account_balance</span>
-                    </div>
-                    <span class="text-xl font-bold text-primary dark:text-white">Governo</span>
-                    <span class="text-sm text-base-content/60">(Políticas Públicas Eficientes)</span>
+            <div class="flex flex-col items-center gap-4">
+                <div
+                    class="w-24 h-24 rounded-full bg-primary/10 dark:bg-accent/10 flex items-center justify-center text-accent">
+                    <span class="material-symbols-outlined" style="font-size: 48px;">account_balance</span>
                 </div>
+                <span class="text-xl font-bold text-primary dark:text-white">Governo</span>
+                <span class="text-sm text-base-content/60">(Políticas Públicas Eficientes)</span>
             </div>
         </div>
-    </section>
+    </app-ui-section>
 
     <!-- Rodapé CTA Final -->
-    <section class="py-32 bg-accent relative overflow-hidden" id="contact">
-        <div class="absolute inset-0 bg-primary opacity-10">
+    <app-ui-section sectionClass="!py-32 bg-accent" id="contact">
+        <div background class="absolute inset-0 bg-primary opacity-10">
             <svg class="h-full w-full opacity-20" preserveAspectRatio="none" viewBox="0 0 100 100">
                 <path d="M0 100 Q 50 0 100 100" fill="white"></path>
             </svg>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">Vamos construir um futuro sustentável juntos?
             </h2>
             <a [routerLink]="routes.home.path" fragment="contact"
@@ -133,5 +128,5 @@
                 Solicitar Proposta
             </a>
         </div>
-    </section>
+    </app-ui-section>
 </main>
