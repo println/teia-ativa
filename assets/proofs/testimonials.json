@@ -44,5 +44,32 @@
         "location": "São Pedro da Aldeia (RJ)",
         "source": "https://pmspa.rj.gov.br/atividade-de-conscientizacao-ambiental-movimenta-o-cras-alecrim/",
         "context": "Atividade de conscientização ambiental conduzida por Sabrina Mesquita."
+    },
+    {
+        "name": "Analista",
+        "initials": "AN",
+        "role": "Analista do setor de sustentabilidade, diversidade e inclusão do SEBRAE",
+        "content": "Muito boa a apresentação. Muitos dados e tendências. Gostei muito!",
+        "service": "Serviço prestado para o Seminário Transcender do SEBRAE",
+        "location": "",
+        "source": ""
+    },
+    {
+        "name": "Coordenadora",
+        "initials": "CO",
+        "role": "Coordenadora do EJA no SESC Jacarepaguá",
+        "content": "Ontem foi uma noite muito especial de aprendizado para os alunos da EJA. Suzan, muito obrigada por todo profissionalismo e competência.",
+        "service": "Serviço prestado para o SEBRAE Rio (Palestra sobre Empreendedorismo e Economia Solidária)",
+        "location": "",
+        "source": ""
+    },
+    {
+        "name": "Participante",
+        "initials": "PA",
+        "role": "Participante da palestra",
+        "content": "Sua apresentação é espetacular. Parabéns!",
+        "service": "Palestra sobre Empreendedorismo e Famílias Atípicas prestada para o Sebrae Rio",
+        "location": "",
+        "source": ""
     }
 ]
