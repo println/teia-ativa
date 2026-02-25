@@ -1,10 +1,10 @@
 ---
-eyebrow: Nosso Diferencial
+eyebrow: Cultura Organizacional
 ---
 
-# Enquanto sua empresa faz *teatro verde*, concorrentes constroem **vantagem real.**
+# CULTURA ATIVA "Enquanto sua empresa faz *teatro verde*, concorrentes constroem **vantagem estratégica real e competitividade.**"
 
-Sustentabilidade deixou de ser opcional. Investidores avaliam por isso. Talentos escolhem por isso. Mas ter política escrita não é ter cultura vivida.
+Sustentabilidade na cultura não é custo moral. **É vantagem estratégica.**
 
 ## Cultura Ativa
 
@@ -14,51 +14,51 @@ A ponte sólida entre a intenção estratégica e a prática diária.
 
 ### Benefícios
 
-- **trending_up: Investidores confiam**  
-  Empresas com cultura ESG sólida atraem capital com melhores taxas e condições.
+- **payments: Investidores Confiam**  
+  Transparência e maturidade com Relatórios de Sustentabilidade (GRI e ODS) que reduzem riscos operacionais e atraem capital de longo prazo.
 
-- **groups: Talentos engajados**  
-  Profissionais de alta performance buscam propósito real, não apenas salário.
+- **groups_3: Talentos Engajados**  
+  Retenção de alta performance através de metodologias ativas que transformam colaboradores em protagonistas, ressoando com o propósito das novas gerações.
 
-- **check_circle: Decisões corretas**  
-  Autonomia com responsabilidade socioambiental em todos os níveis hierárquicos.
+- **balance: Decisões Corretas**  
+  Governança sólida para a transição de uma cultura organizacional sustentável e ética, protegendo o valor da marca no futuro.
 
-- **lightbulb: Inovação orgânica**  
-  A sustentabilidade força a criatividade e gera novos produtos e serviços.
+- **lightbulb: Inovação Orgânica**  
+  Cultura de eficiência que gera novos produtos e serviços a partir da inovação e do desenvolvimento sustentável.
 
-- **shield: Crises prevenidas**  
-  Uma cultura ética e consciente funciona como um sistema imunológico corporativo.
+- **security: Crises Prevenidas**  
+  Mitigação de riscos reputacionais e operacionais através de uma operação pautada pela responsabilidade socioambiental.
 
-- **bolt: Mais eficiência**  
-  Menos desperdício de recursos, tempo e energia. Otimização contínua.
+- **rocket_launch: Mais Eficiência**  
+  Redução de desperdícios e otimização de recursos através de processos inteligentes e consumo consciente.
 
 ---
 
 ### O Custo da Inação
 
-- **Fuga de Investimentos**  
-  Fundos ESG excluem empresas sem comprovação prática.
+- **Mercado Exigente**  
+  O mercado exige práticas sustentáveis; empresas que ignoram a responsabilidade socioambiental perdem competitividade.
 
-- **Turnover Tóxico**  
-  Perda dos melhores talentos para concorrentes com propósito.
+- **Dificuldade com Talentos**  
+  Dificuldade em atrair talentos C-Level e da Geração Z.
 
-- **Riscos Legais**  
-  Aumento da exposição a multas ambientais e trabalhistas.
+- **Riscos Regulatórios**  
+  Risco de multas regulatórias e exclusão de cadeias de suprimentos globais.
 
 ---
 
 ### O ROI da Cultura Ativa
 
-- **Marca Empregadora Forte**  
-  Atração orgânica dos melhores profissionais do mercado.
+- **Crédito Verde**  
+  Acesso a linhas de crédito verde e atração de novos investidores.
 
-- **Resiliência Operacional**  
-  Equipes preparadas para adaptar-se a cenários complexos.
+- **Engajamento Real**  
+  Equipes com maior engajamento, promovendo um ambiente de trabalho mais saudável e colaborativo.
 
-- **Longevidade do Negócio**  
-  Garantia de relevância no mercado pelos próximos 10, 20 anos.
+- **Reconhecimento de Marca**  
+  Projeção da sua marca a um novo nível de reconhecimento e credibilidade.
 
 ---
 
-> Sustentabilidade na cultura não é bondade.  
-> **É inteligência de negócio.**
+> Sustentabilidade na cultura não é custo moral.  
+> **É vantagem estratégica.**
