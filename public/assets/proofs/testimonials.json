@@ -46,30 +46,33 @@
         "context": "Atividade de conscientização ambiental conduzida por Sabrina Mesquita."
     },
     {
-        "name": "Analista",
-        "initials": "AN",
-        "role": "Analista do setor de sustentabilidade, diversidade e inclusão do SEBRAE",
+        "name": "Louise Nogueira",
+        "initials": "LN",
+        "role": "Analista do setor de sustentabilidade, diversidade e inclusão do SEBRAE RJ",
         "content": "Muito boa a apresentação. Muitos dados e tendências. Gostei muito!",
-        "service": "Serviço prestado para o Seminário Transcender do SEBRAE",
-        "location": "",
-        "source": ""
+        "service": "Serviço prestado para o Sebrae RJ (sede)",
+        "location": "Sede Sebrae RJ - Rio de Janeiro",
+        "source": "Depoimento via whatsapp",
+        "context": "Palestra para o Seminário Transcender do SEBRAE"
     },
     {
-        "name": "Coordenadora",
-        "initials": "CO",
-        "role": "Coordenadora do EJA no SESC Jacarepaguá",
+        "name": "Janaina Franca",
+        "initials": "JF",
+        "role": "Coordenadora da EJA no SESC Jacarepaguá",
         "content": "Ontem foi uma noite muito especial de aprendizado para os alunos da EJA. Suzan, muito obrigada por todo profissionalismo e competência.",
-        "service": "Serviço prestado para o SEBRAE Rio (Palestra sobre Empreendedorismo e Economia Solidária)",
-        "location": "",
-        "source": ""
+        "service": "Serviço prestado para o Sebrae RJ (sede)",
+        "location": "SESC Jacarepaguá",
+        "source": "Depoimento via whatsapp",
+        "context": "Palestra sobre Empreendedorismo e Economia Solidária"
     },
     {
-        "name": "Participante",
-        "initials": "PA",
-        "role": "Participante da palestra",
+        "name": "Luciano Santos",
+        "initials": "LS",
+        "role": "Ouvinte da palestra",
         "content": "Sua apresentação é espetacular. Parabéns!",
-        "service": "Palestra sobre Empreendedorismo e Famílias Atípicas prestada para o Sebrae Rio",
-        "location": "",
-        "source": ""
+        "service": "Serviço prestado para o Sebrae RJ (sede)",
+        "location": "Sede Sebrae RJ",
+        "source": "Depoimento via whatsapp",
+        "context": "Palestra sobre Empreendedorismo e Famílias Atípicas"
     }
 ]
