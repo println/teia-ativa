@@ -4,35 +4,64 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <div class="flex items-center h-full">
-                <a class="flex h-full items-center gap-2 group" [routerLink]="routes.home.fullPath">
+                <a class="flex h-full items-center gap-2 group cursor-pointer" [routerLink]="routes.home.fullPath"
+                    (click)="scrollToTop()">
                     <div class="h-15">
                         <app-logo-icon [invertDark]="true"></app-logo-icon>
                     </div>
                     <app-logo variant="default" class="h-6" [invertDark]="true"></app-logo>
                 </a>
             </div>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+            <!-- Centro: Botões de Ofertas com Cores Diferenciadas -->
+            <div
+                class="hidden lg:flex items-center gap-1 px-2 py-1.5 bg-base-200/50 dark:bg-base-200/20 backdrop-blur-md rounded-full shadow-inner">
+                <a routerLink="/empresa" (click)="scrollToOffers()"
+                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    <span class="material-symbols-outlined text-[18px]">business</span>
+                    Empresa
+                </a>
+                <a routerLink="/escola" (click)="scrollToOffers()"
+                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    <span class="material-symbols-outlined text-[18px]">school</span>
+                    Escola
+                </a>
+                <a routerLink="/gestao-publica" (click)="scrollToOffers()"
+                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    <span class="material-symbols-outlined text-[18px]">account_balance</span>
+                    Gestão Pública
+                </a>
+            </div>
+
+            <!-- Canto: Links Antigos e CTA -->
+            <div class="hidden lg:flex space-x-6 items-center">
+                <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     [routerLink]="routes.services.fullPath">Serviços</a>
-                <a class="text-base-content hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+                <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
                     [routerLink]="routes.about.fullPath">Sobre</a>
                 <div class="relative group-theme">
                     <button
-                        class="flex items-center text-base-content hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
+                        class="flex items-center text-base-content/80 hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
                         id="theme-toggle" (click)="toggleTheme()"
                         [attr.aria-label]="(isDark$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
-                        <span class="material-symbols-outlined">{{ (isDark$ | async) ? 'light_mode' : 'dark_mode'
-                            }}</span>
+                        <span class="material-symbols-outlined text-xl">{{ (isDark$ | async) ? 'light_mode' :
+                            'dark_mode' }}</span>
                     </button>
                 </div>
-            </div>
-            <div class="hidden md:flex">
-                <a class="bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
+                <!-- Divisor Vertical -->
+                <div class="w-px h-6 bg-base-content/10"></div>
+                <!-- Botão Canto -->
+                <a class="bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
                     [routerLink]="routes.home.fullPath" fragment="contact">
                     Fale Conosco
                 </a>
             </div>
-            <div class="md:hidden flex items-center gap-4">
+            <div class="lg:hidden flex items-center gap-4">
                 <button
                     class="flex items-center text-base-content hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
                     (click)="toggleTheme()">
@@ -46,13 +75,36 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
+    <div class="lg:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
         [class.max-h-96]="isMenuOpen" [class.border-t]="isMenuOpen" [class.border-base-content/10]="isMenuOpen">
         <div class="px-4 pt-2 pb-6 space-y-2 bg-base-100/95 backdrop-blur-md">
-            <a class="block px-3 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-lg transition"
-                [routerLink]="routes.services.fullPath" (click)="isMenuOpen = false">Serviços</a>
-            <a class="block px-3 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-lg transition"
-                [routerLink]="routes.about.fullPath" (click)="isMenuOpen = false">Sobre</a>
+            <!-- Menu de Ofertas Mobile -->
+            <div class="grid grid-cols-1 gap-2 border-b border-base-content/10 pb-4 mb-2">
+                <a routerLink="/empresa" routerLinkActive="!bg-education-accent !text-white"
+                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition"
+                    (click)="isMenuOpen = false; scrollToOffers()">
+                    <span class="material-symbols-outlined">business</span> Empresa
+                </a>
+                <a routerLink="/escola" routerLinkActive="!bg-education-accent !text-white"
+                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition"
+                    (click)="isMenuOpen = false; scrollToOffers()">
+                    <span class="material-symbols-outlined">school</span> Escola
+                </a>
+                <a routerLink="/gestao-publica" routerLinkActive="!bg-education-accent !text-white"
+                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/10 rounded-xl transition"
+                    (click)="isMenuOpen = false; scrollToOffers()">
+                    <span class="material-symbols-outlined">account_balance</span> Gestão Pública
+                </a>
+            </div>
+
+            <a class="flex items-center gap-3 px-4 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
+                [routerLink]="routes.services.fullPath" (click)="isMenuOpen = false">
+                <span class="material-symbols-outlined text-xl">category</span> Serviços
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
+                [routerLink]="routes.about.fullPath" (click)="isMenuOpen = false">
+                <span class="material-symbols-outlined text-xl">info</span> Sobre
+            </a>
             <div class="pt-4">
                 <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-4 rounded-xl font-bold shadow-lg transition"
                     [routerLink]="routes.home.fullPath" fragment="contact" (click)="isMenuOpen = false">

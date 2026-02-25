@@ -4,6 +4,7 @@ import { AboutComponent } from './pages/about/about';
 import { ServicesComponent } from './pages/services/services';
 import { CompaniesComponent } from './components/offers/companies/companies.component';
 import { EducationComponent } from './components/offers/education/education.component';
+import { GovernmentComponent } from './components/offers/government/government.component';
 import { ROUTES } from './config/routes.config';
 
 export const routes: Routes = [
@@ -26,6 +27,7 @@ export const routes: Routes = [
         children: [
             { path: 'empresa', component: CompaniesComponent },
             { path: 'escola', component: EducationComponent },
+            { path: 'gestao-publica', component: GovernmentComponent },
             { path: '', redirectTo: 'empresa', pathMatch: 'full' }
         ]
     }

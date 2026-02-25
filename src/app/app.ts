@@ -19,7 +19,7 @@ export class AppComponent {
     ).subscribe((event: any) => {
       // Se não houver fragmento e não for uma navegação interna da segmentação (empresa/escola), rola para o topo
       const url = event.urlAfterRedirects || event.url;
-      const isSegmentation = url.includes('/empresa') || url.includes('/escola');
+      const isSegmentation = url.includes('/empresa') || url.includes('/escola') || url.includes('/gestao-publica');
       const hasFragment = url.includes('#');
 
       if (!isSegmentation && !hasFragment) {

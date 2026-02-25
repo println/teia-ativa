@@ -109,12 +109,17 @@
 
 @theme {
     /* Colors (Utilities) */
-    --color-company: #24354D;
-    --color-company-dark: #2A4761;
-    --color-company-blue: #3A638C;
-    --color-company-blue-dark: #2A4761;
-    --color-education: #EAB308;
-    --color-government: #64748B;
+    --color-company: #1E4631;
+    /* Verde Escuro Institucional */
+    --color-company-dark: #143221;
+    --color-education: #F4F1EA;
+    /* Fundo Areia bem claro (Off-White) */
+    --color-education-accent: #E87A5D;
+    /* Laranja/Terracota */
+    --color-government: #E3D8C8;
+    /* Bege Terroso */
+    --color-government-accent: #8B9A82;
+    /* Verde Oliva suave */
 
     --color-background-light: #F7F9F5;
     --color-background-dark: #1a261a;
@@ -294,6 +299,14 @@
     border-color: var(--color-education);
 }
 
+.text-education-accent {
+    color: var(--color-education-accent);
+}
+
+.bg-education-accent {
+    background-color: var(--color-education-accent);
+}
+
 .text-government {
     color: var(--color-government);
 }
@@ -304,6 +317,14 @@
 
 .border-government {
     border-color: var(--color-government);
+}
+
+.text-government-accent {
+    color: var(--color-government-accent);
+}
+
+.bg-government-accent {
+    background-color: var(--color-government-accent);
 }
 
 body {
