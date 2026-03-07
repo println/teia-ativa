@@ -6,6 +6,7 @@ import { CompaniesComponent } from './components/offers/companies/companies.comp
 import { EducationComponent } from './components/offers/education/education.component';
 import { GovernmentComponent } from './components/offers/government/government.component';
 import { ROUTES } from './config/routes.config';
+import { NAMES } from '@config/names.config';
 
 export const routes: Routes = [
     {
@@ -17,18 +18,18 @@ export const routes: Routes = [
         component: ServicesComponent
     },
     {
-        path: 'home',
-        redirectTo: '',
+        path: ROUTES.home.id,
+        redirectTo: NAMES.BASIC_PAGES.empty,
         pathMatch: 'full'
     },
     {
         path: '',
         component: HomeComponent,
         children: [
-            { path: 'empresa', component: CompaniesComponent },
-            { path: 'escola', component: EducationComponent },
-            { path: 'gestao-publica', component: GovernmentComponent },
-            { path: '', redirectTo: 'empresa', pathMatch: 'full' }
+            { path: ROUTES.organization.id, component: CompaniesComponent },
+            { path: ROUTES.education.id, component: EducationComponent },
+            { path: ROUTES.public_management.id, component: GovernmentComponent },
+            { path: '', redirectTo: ROUTES.organization.id, pathMatch: 'full' }
         ]
     }
 ];

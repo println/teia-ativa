@@ -28,7 +28,7 @@ export class Header {
   scrollToTop() {
     if (isPlatformBrowser(this.platformId)) {
       // Scrola pro topo independentemente de mudar de página se já estiver nas páginas de home
-      if (this.router.url === '/' || this.router.url === '/empresa' || this.router.url === '/escola' || this.router.url === '/gestao-publica') {
+      if (this.router.url === ROUTES.home.path || this.router.url === ROUTES.organization.path || this.router.url === ROUTES.education.path || this.router.url === ROUTES.public_management.path) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }

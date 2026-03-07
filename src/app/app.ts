@@ -3,6 +3,7 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
+import { ROUTES } from '@config/routes.config';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
     ).subscribe((event: any) => {
       // Se não houver fragmento e não for uma navegação interna da segmentação (empresa/escola), rola para o topo
       const url = event.urlAfterRedirects || event.url;
-      const isSegmentation = url.includes('/empresa') || url.includes('/escola') || url.includes('/gestao-publica');
+      const isSegmentation = url.includes(ROUTES.organization.path) || url.includes(ROUTES.education.path) || url.includes(ROUTES.public_management.path);
       const hasFragment = url.includes('#');
 
       if (!isSegmentation && !hasFragment) {

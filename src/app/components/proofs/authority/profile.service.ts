@@ -13,7 +13,7 @@ export class ProfileService {
     constructor(private http: HttpClient) { }
 
     getProfiles(): Observable<Profile[]> {
-        const profilesToLoad = ['profile_suzan.json', 'profile_roberto.json', 'profile_sabrina.json'];
+        const profilesToLoad = ['profile_suzan.json', 'profile_roberto.json', 'profile_sabrina.json', 'profile_vitoria.json', 'profile_carolina.json'];
         const requests = profilesToLoad.map(file =>
             this.http.get<Profile>(`assets/profiles/${file}`)
         );
