@@ -25,6 +25,15 @@ export class Header {
   private platformId = inject(PLATFORM_ID);
   private router = inject(Router);
 
+  get isHomePage() {
+    return [
+      ROUTES.home.path, 
+      ROUTES.organization.path, 
+      ROUTES.education.path, 
+      ROUTES.public_management.path
+    ].includes(this.router.url);
+  }
+
   @HostListener('window:scroll')
   onScroll() {
     if (isPlatformBrowser(this.platformId)) {

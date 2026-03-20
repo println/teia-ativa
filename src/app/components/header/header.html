@@ -1,7 +1,10 @@
-<nav class="fixed w-full z-50 transition-all duration-300 border-b" [class.bg-base-100/90]="isScrolled"
-    [class.dark:bg-neutral/90]="isScrolled" [class.backdrop-blur-md]="isScrolled"
-    [class.border-base-content/10]="isScrolled" [class.bg-transparent]="!isScrolled"
-    [class.border-transparent]="!isScrolled">
+<nav class="fixed w-full z-50 transition-all duration-300 border-b" 
+    [class.bg-base-100/90]="isScrolled || !isHomePage"
+    [class.dark:bg-neutral/90]="isScrolled || !isHomePage" 
+    [class.backdrop-blur-md]="isScrolled || !isHomePage"
+    [class.border-base-content/10]="isScrolled || !isHomePage" 
+    [class.bg-transparent]="!isScrolled && isHomePage"
+    [class.border-transparent]="!isScrolled && isHomePage">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
@@ -48,13 +51,13 @@
             <!-- Canto: Links Antigos e CTA -->
             <div class="hidden lg:flex space-x-6 items-center">
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [class.text-primary]="!isScrolled" [routerLink]="routes.services.fullPath">Serviços</a>
+                    [class.text-primary]="!isScrolled && isHomePage" [routerLink]="routes.services.fullPath">Serviços</a>
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [class.text-primary]="!isScrolled" [routerLink]="routes.about.fullPath">Sobre</a>
+                    [class.text-primary]="!isScrolled && isHomePage" [routerLink]="routes.about.fullPath">Sobre</a>
                 <div class="relative group-theme">
                     <button
                         class="flex items-center text-base-content/80 hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
-                        [class.text-primary]="!isScrolled" id="theme-toggle" (click)="toggleTheme()"
+                        [class.text-primary]="!isScrolled && isHomePage" id="theme-toggle" (click)="toggleTheme()"
                         [attr.aria-label]="(isDark$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
                         <span class="material-symbols-outlined text-xl">{{ (isDark$ | async) ? 'light_mode' :
                             'dark_mode' }}</span>
