@@ -34,6 +34,6 @@ export class Segmentation implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.observer?.disconnect();
-    this.uiStore.setOffersSelectorVisible(true);
+    this.uiStore.setOffersSelectorVisible(false);
   }
 }

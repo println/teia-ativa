@@ -1,10 +1,7 @@
-<nav
-    class="fixed w-full z-50 transition-all duration-300 border-b"
-    [class.bg-base-100/90]="isScrolled" [class.dark:bg-neutral/90]="isScrolled"
-    [class.backdrop-blur-md]="isScrolled"
-    [class.border-base-content/10]="isScrolled"
-    [class.bg-transparent]="!isScrolled" [class.border-transparent]="!isScrolled"
-    [attr.data-theme]="!isScrolled ? 'teia-ativa-original' : null">
+<nav class="fixed w-full z-50 transition-all duration-300 border-b" [class.bg-base-100/90]="isScrolled"
+    [class.dark:bg-neutral/90]="isScrolled" [class.backdrop-blur-md]="isScrolled"
+    [class.border-base-content/10]="isScrolled" [class.bg-transparent]="!isScrolled"
+    [class.border-transparent]="!isScrolled">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
@@ -15,35 +12,34 @@
                     [class.pointer-events-none]="!(showLogo$ | async)" [routerLink]="routes.home.fullPath"
                     (click)="scrollToTop()">
                     <div class="h-15">
-                        <app-logo-icon [invertDark]="isScrolled"></app-logo-icon>
+                        <app-logo-icon [invertDark]="true"></app-logo-icon>
                     </div>
-                    <app-logo variant="default" class="h-6" [invertDark]="isScrolled"></app-logo>
+                    <app-logo variant="default" class="h-6" [invertDark]="true"></app-logo>
                 </a>
             </div>
             <!-- Centro: Botões de Ofertas com Cores Diferenciadas -->
-            <div
-                class="hidden lg:flex items-center gap-1 px-2 py-1.5 bg-base-200/50 dark:bg-base-200/20 backdrop-blur-md rounded-full shadow-inner transition-all duration-500"
+            <div class="hidden lg:flex items-center gap-1 px-2 py-1.5 bg-base-200/50 dark:bg-base-200/20 backdrop-blur-md rounded-full shadow-inner transition-all duration-500"
                 [class.opacity-0]="!(showOffersSelector$ | async)" [class.opacity-100]="showOffersSelector$ | async"
                 [class.scale-95]="!(showOffersSelector$ | async)" [class.scale-100]="showOffersSelector$ | async"
                 [class.pointer-events-none]="!(showOffersSelector$ | async)">
                 <a [routerLink]="routes.organization.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white shadow-md"
+                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
                     <span class="material-symbols-outlined text-[18px]">business</span>
                     Organizações
                 </a>
                 <a [routerLink]="routes.education.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white shadow-md"
+                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
                     <span class="material-symbols-outlined text-[18px]">school</span>
                     Escola
                 </a>
                 <a [routerLink]="routes.public_management.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white shadow-md"
+                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
                     <span class="material-symbols-outlined text-[18px]">account_balance</span>
                     Gestão Pública
                 </a>
@@ -52,13 +48,13 @@
             <!-- Canto: Links Antigos e CTA -->
             <div class="hidden lg:flex space-x-6 items-center">
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [routerLink]="routes.services.fullPath">Serviços</a>
+                    [class.text-primary]="!isScrolled" [routerLink]="routes.services.fullPath">Serviços</a>
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [routerLink]="routes.about.fullPath">Sobre</a>
+                    [class.text-primary]="!isScrolled" [routerLink]="routes.about.fullPath">Sobre</a>
                 <div class="relative group-theme">
                     <button
                         class="flex items-center text-base-content/80 hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
-                        id="theme-toggle" (click)="toggleTheme()"
+                        [class.text-primary]="!isScrolled" id="theme-toggle" (click)="toggleTheme()"
                         [attr.aria-label]="(isDark$ | async) ? 'Switch to light mode' : 'Switch to dark mode'">
                         <span class="material-symbols-outlined text-xl">{{ (isDark$ | async) ? 'light_mode' :
                             'dark_mode' }}</span>
@@ -67,7 +63,7 @@
                 <!-- Divisor Vertical -->
                 <div class="w-px h-6 bg-base-content/10"></div>
                 <!-- Botão Canto -->
-                <a class="bg-primary hover:bg-accent text-primary-content px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
+                <a class="bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
                     [routerLink]="routes.home.fullPath" fragment="contact">
                     Fale Conosco
                 </a>
@@ -117,7 +113,7 @@
                 <span class="material-symbols-outlined text-xl">info</span> Sobre
             </a>
             <div class="pt-4">
-                <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content px-6 py-4 rounded-xl font-bold shadow-lg transition"
+                <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-4 rounded-xl font-bold shadow-lg transition"
                     [routerLink]="routes.home.fullPath" fragment="contact" (click)="isMenuOpen = false">
                     Fale Conosco
                 </a>

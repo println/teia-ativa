@@ -30,6 +30,6 @@ export class Hero implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.observer?.disconnect();
-    this.uiStore.setHeroVisible(true);
+    this.uiStore.setHeroVisible(false);
   }
 }
