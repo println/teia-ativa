@@ -4,16 +4,20 @@ import { isPlatformBrowser } from '@angular/common';
 
 export interface UiProps {
     isDark: boolean;
+    isHeroVisible: boolean;
+    isOffersSelectorVisible: boolean;
 }
 
 const store = createStore(
     { name: 'ui' },
-    withProps<UiProps>({ isDark: false })
+    withProps<UiProps>({ isDark: false, isHeroVisible: true, isOffersSelectorVisible: true })
 );
 
 @Injectable({ providedIn: 'root' })
 export class UiStore {
     isDark$ = store.pipe(select((state) => state.isDark));
+    isHeroVisible$ = store.pipe(select((state) => state.isHeroVisible));
+    isOffersSelectorVisible$ = store.pipe(select((state) => state.isOffersSelectorVisible));
 
     private readonly LIGHT_THEME = 'teia-ativa-original';
     private readonly DARK_THEME = 'teia-ativa-original-dark';
@@ -45,6 +49,14 @@ export class UiStore {
                 return { ...state, isDark: newDark };
             });
         }
+    }
+
+    setHeroVisible(visible: boolean) {
+        store.update((state) => ({ ...state, isHeroVisible: visible }));
+    }
+
+    setOffersSelectorVisible(visible: boolean) {
+        store.update((state) => ({ ...state, isOffersSelectorVisible: visible }));
     }
 
     private applyTheme(theme: string) {

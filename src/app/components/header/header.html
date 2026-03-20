@@ -1,38 +1,49 @@
 <nav
-    class="fixed w-full z-50 bg-base-100/90 backdrop-blur-md border-b border-base-content/10 transition-all duration-300">
+    class="fixed w-full z-50 transition-all duration-300 border-b"
+    [class.bg-base-100/90]="isScrolled" [class.dark:bg-neutral/90]="isScrolled"
+    [class.backdrop-blur-md]="isScrolled"
+    [class.border-base-content/10]="isScrolled"
+    [class.bg-transparent]="!isScrolled" [class.border-transparent]="!isScrolled"
+    [attr.data-theme]="!isScrolled ? 'teia-ativa-original' : null">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <div class="flex items-center h-full">
-                <a class="flex h-full items-center gap-2 group cursor-pointer" [routerLink]="routes.home.fullPath"
+                <a class="flex h-full items-center gap-2 group cursor-pointer transition-all duration-500"
+                    [class.opacity-0]="!(showLogo$ | async)" [class.opacity-100]="showLogo$ | async"
+                    [class.-translate-x-4]="!(showLogo$ | async)" [class.translate-x-0]="showLogo$ | async"
+                    [class.pointer-events-none]="!(showLogo$ | async)" [routerLink]="routes.home.fullPath"
                     (click)="scrollToTop()">
                     <div class="h-15">
-                        <app-logo-icon [invertDark]="true"></app-logo-icon>
+                        <app-logo-icon [invertDark]="isScrolled"></app-logo-icon>
                     </div>
-                    <app-logo variant="default" class="h-6" [invertDark]="true"></app-logo>
+                    <app-logo variant="default" class="h-6" [invertDark]="isScrolled"></app-logo>
                 </a>
             </div>
             <!-- Centro: Botões de Ofertas com Cores Diferenciadas -->
             <div
-                class="hidden lg:flex items-center gap-1 px-2 py-1.5 bg-base-200/50 dark:bg-base-200/20 backdrop-blur-md rounded-full shadow-inner">
+                class="hidden lg:flex items-center gap-1 px-2 py-1.5 bg-base-200/50 dark:bg-base-200/20 backdrop-blur-md rounded-full shadow-inner transition-all duration-500"
+                [class.opacity-0]="!(showOffersSelector$ | async)" [class.opacity-100]="showOffersSelector$ | async"
+                [class.scale-95]="!(showOffersSelector$ | async)" [class.scale-100]="showOffersSelector$ | async"
+                [class.pointer-events-none]="!(showOffersSelector$ | async)">
                 <a [routerLink]="routes.organization.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    routerLinkActive="!bg-education-accent !text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
                     <span class="material-symbols-outlined text-[18px]">business</span>
                     Organizações
                 </a>
                 <a [routerLink]="routes.education.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    routerLinkActive="!bg-education-accent !text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
                     <span class="material-symbols-outlined text-[18px]">school</span>
                     Escola
                 </a>
                 <a [routerLink]="routes.public_management.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-education-accent !text-white dark:!text-white shadow-md"
+                    routerLinkActive="!bg-education-accent !text-white shadow-md"
                     [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-education-accent/5 hover:text-education-accent dark:hover:text-white">
+                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/80 hover:bg-education-accent/10 hover:text-education-accent">
                     <span class="material-symbols-outlined text-[18px]">account_balance</span>
                     Gestão Pública
                 </a>
@@ -56,7 +67,7 @@
                 <!-- Divisor Vertical -->
                 <div class="w-px h-6 bg-base-content/10"></div>
                 <!-- Botão Canto -->
-                <a class="bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
+                <a class="bg-primary hover:bg-accent text-primary-content px-6 py-2.5 rounded-full text-sm font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 ease-out"
                     [routerLink]="routes.home.fullPath" fragment="contact">
                     Fale Conosco
                 </a>
@@ -106,7 +117,7 @@
                 <span class="material-symbols-outlined text-xl">info</span> Sobre
             </a>
             <div class="pt-4">
-                <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-4 rounded-xl font-bold shadow-lg transition"
+                <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content px-6 py-4 rounded-xl font-bold shadow-lg transition"
                     [routerLink]="routes.home.fullPath" fragment="contact" (click)="isMenuOpen = false">
                     Fale Conosco
                 </a>
