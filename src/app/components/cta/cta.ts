@@ -18,7 +18,7 @@ export class Cta {
 
   baseMessage = 'Vim pelo site da Teia Ativa e gostaria de falar com um especialista sobre as consultorias e treinamentos para minha organização';
 
-  organizationOptions = ['Escola', 'Empresa', 'Organização', 'Gestão Pública'];
+  organizationOptions = ['Escola', 'Empresa', 'Organização', 'Governo'];
   selectedOrgs: string[] = [];
 
   formData = {
