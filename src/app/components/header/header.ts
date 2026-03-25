@@ -1,16 +1,17 @@
 import { Component, PLATFORM_ID, inject, HostListener } from '@angular/core';
-import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { ROUTES } from '../../config/routes.config';
 import { UiStore } from '../../store/ui.store';
 
 import { LogoComponent } from '../shared/logo/logo.component';
 import { LogoIconComponent } from '../shared/logo/logo-icon.component';
+import { Selector } from '../offers/selector/selector';
 import { map } from 'rxjs';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink, RouterLinkActive, LogoComponent, LogoIconComponent],
+  imports: [CommonModule, RouterLink, LogoComponent, LogoIconComponent, Selector],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -46,20 +47,6 @@ export class Header {
       if (this.router.url === ROUTES.home.path || this.router.url === ROUTES.organization.path || this.router.url === ROUTES.education.path || this.router.url === ROUTES.public_management.path) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }
-  }
-
-  scrollToOffers() {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
-        const element = document.getElementById('services');
-        if (element) {
-          const y = element.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: window.innerHeight - 100, behavior: 'smooth' });
-        }
-      }, 100);
     }
   }
 

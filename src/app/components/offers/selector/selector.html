@@ -1,0 +1,63 @@
+@if (variant() === 'default') {
+  <div class="flex flex-wrap justify-center gap-3">
+      <a routerLink="{{ROUTES.organization.path}}" (click)="scrollToContent()"
+          routerLinkActive="active-tab !border-accent !bg-orange-50 dark:!bg-orange-900/10 !text-accent"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="flex-1 md:flex-none px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-accent hover:bg-orange-50 dark:hover:bg-orange-900/10 text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer no-underline">
+          <span class="material-symbols-outlined transition-colors group-[.active-tab]:text-accent text-gray-400 group-hover:text-accent">business</span>
+          <span class="font-bold">Organizações</span>
+      </a>
+      <a routerLink="{{ROUTES.education.path}}" (click)="scrollToContent()"
+          routerLinkActive="active-tab !border-accent !bg-orange-50 dark:!bg-orange-900/10 !text-accent"
+          class="flex-1 md:flex-none px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-accent hover:bg-orange-50 dark:hover:bg-orange-900/10 text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer no-underline">
+          <span class="material-symbols-outlined transition-colors group-[.active-tab]:text-accent text-gray-400 group-hover:text-accent">school</span>
+          <span class="font-bold">Escola</span>
+      </a>
+      <a routerLink="{{ROUTES.public_management.path}}" (click)="scrollToContent()"
+          routerLinkActive="active-tab !border-accent !bg-orange-50 dark:!bg-orange-900/10 !text-accent"
+          class="flex-1 md:flex-none px-6 py-3 rounded-xl border border-gray-200 dark:border-gray-600 hover:border-accent hover:bg-orange-50 dark:hover:bg-orange-900/10 text-gray-600 dark:text-gray-300 hover:text-accent dark:hover:text-accent transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer no-underline">
+          <span class="material-symbols-outlined transition-colors group-[.active-tab]:text-accent text-gray-400 group-hover:text-accent">account_balance</span>
+          <span class="font-bold whitespace-nowrap">Gestão Pública</span>
+      </a>
+  </div>
+} @else if (variant() === 'header') {
+  <a [routerLink]="ROUTES.organization.path" (click)="scrollToContent()"
+      routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white cursor-pointer no-underline">
+      <span class="material-symbols-outlined text-[18px]">business</span>
+      Organizações
+  </a>
+  <a [routerLink]="ROUTES.education.path" (click)="scrollToContent()"
+      routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white cursor-pointer no-underline">
+      <span class="material-symbols-outlined text-[18px]">school</span>
+      Escola
+  </a>
+  <a [routerLink]="ROUTES.public_management.path" (click)="scrollToContent()"
+      routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white cursor-pointer no-underline">
+      <span class="material-symbols-outlined text-[18px]">account_balance</span>
+      Gestão Pública
+  </a>
+} @else if (variant() === 'mobile') {
+  <div class="grid grid-cols-1 gap-2">
+      <a [routerLink]="ROUTES.organization.path" routerLinkActive="!bg-education-accent !text-white"
+          class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition cursor-pointer no-underline"
+          (click)="scrollToContent()">
+          <span class="material-symbols-outlined">business</span> Organizações
+      </a>
+      <a [routerLink]="ROUTES.education.path" routerLinkActive="!bg-education-accent !text-white"
+          class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition cursor-pointer no-underline"
+          (click)="scrollToContent()">
+          <span class="material-symbols-outlined">school</span> Escola
+      </a>
+      <a [routerLink]="ROUTES.public_management.path" routerLinkActive="!bg-education-accent !text-white"
+          class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/10 rounded-xl transition cursor-pointer no-underline"
+          (click)="scrollToContent()">
+          <span class="material-symbols-outlined">account_balance</span> Gestão Pública
+      </a>
+  </div>
+}

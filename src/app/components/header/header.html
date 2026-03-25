@@ -25,27 +25,7 @@
                 [class.opacity-0]="!(showOffersSelector$ | async)" [class.opacity-100]="showOffersSelector$ | async"
                 [class.scale-95]="!(showOffersSelector$ | async)" [class.scale-100]="showOffersSelector$ | async"
                 [class.pointer-events-none]="!(showOffersSelector$ | async)">
-                <a [routerLink]="routes.organization.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
-                    [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
-                    <span class="material-symbols-outlined text-[18px]">business</span>
-                    Organizações
-                </a>
-                <a [routerLink]="routes.education.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
-                    [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
-                    <span class="material-symbols-outlined text-[18px]">school</span>
-                    Escola
-                </a>
-                <a [routerLink]="routes.public_management.path" (click)="scrollToOffers()"
-                    routerLinkActive="!bg-accent !text-white dark:!text-white shadow-md"
-                    [routerLinkActiveOptions]="{exact: true}"
-                    class="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 text-base-content/70 hover:bg-accent/10 hover:text-accent dark:hover:text-white">
-                    <span class="material-symbols-outlined text-[18px]">account_balance</span>
-                    Gestão Pública
-                </a>
+                <app-selector variant="header"></app-selector>
             </div>
 
             <!-- Canto: Links Antigos e CTA -->
@@ -85,37 +65,24 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div class="lg:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
-        [class.max-h-96]="isMenuOpen" [class.border-t]="isMenuOpen" [class.border-base-content/10]="isMenuOpen">
-        <div class="px-4 pt-2 pb-6 space-y-2 bg-base-100/95 backdrop-blur-md">
+    <div class="lg:hidden absolute top-20 right-0 w-full h-[calc(100vh-5rem)] transition-transform duration-300 ease-in-out bg-base-100/95 backdrop-blur-md border-l border-t border-base-content/10 shadow-2xl" 
+        [class.translate-x-full]="!isMenuOpen"
+        [class.translate-x-0]="isMenuOpen">
+        <div class="px-6 py-8 h-full flex flex-col space-y-3 overflow-y-auto">
             <!-- Menu de Ofertas Mobile -->
-            <div class="grid grid-cols-1 gap-2 border-b border-base-content/10 pb-4 mb-2">
-                <a routerLink="/empresa" routerLinkActive="!bg-education-accent !text-white"
-                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition"
-                    (click)="isMenuOpen = false; scrollToOffers()">
-                    <span class="material-symbols-outlined">business</span> Empresa
-                </a>
-                <a routerLink="/escola" routerLinkActive="!bg-education-accent !text-white"
-                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/5 rounded-xl transition"
-                    (click)="isMenuOpen = false; scrollToOffers()">
-                    <span class="material-symbols-outlined">school</span> Escola
-                </a>
-                <a routerLink="/gestao-publica" routerLinkActive="!bg-education-accent !text-white"
-                    class="flex items-center gap-3 px-4 py-3 text-base font-bold text-education-accent bg-education-accent/10 rounded-xl transition"
-                    (click)="isMenuOpen = false; scrollToOffers()">
-                    <span class="material-symbols-outlined">account_balance</span> Gestão Pública
-                </a>
+            <div class="border-b border-base-content/10 pb-6 mb-4">
+                <app-selector variant="mobile" (onSelect)="isMenuOpen = false"></app-selector>
             </div>
 
-            <a class="flex items-center gap-3 px-4 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
+            <a class="flex items-center gap-3 px-4 py-4 text-lg font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
                 [routerLink]="routes.services.fullPath" (click)="isMenuOpen = false">
-                <span class="material-symbols-outlined text-xl">category</span> Serviços
+                <span class="material-symbols-outlined text-2xl">category</span> Serviços
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-base font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
+            <a class="flex items-center gap-3 px-4 py-4 text-lg font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
                 [routerLink]="routes.about.fullPath" (click)="isMenuOpen = false">
-                <span class="material-symbols-outlined text-xl">info</span> Sobre
+                <span class="material-symbols-outlined text-2xl">info</span> Sobre
             </a>
-            <div class="pt-4">
+            <div class="mt-auto pt-6 flex-1 flex flex-col justify-end">
                 <a class="block w-full text-center bg-primary hover:bg-accent text-primary-content dark:text-gray-200 px-6 py-4 rounded-xl font-bold shadow-lg transition"
                     [routerLink]="routes.home.fullPath" fragment="contact" (click)="isMenuOpen = false">
                     Fale Conosco

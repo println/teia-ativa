@@ -10,7 +10,7 @@ export interface UiProps {
 
 const store = createStore(
     { name: 'ui' },
-    withProps<UiProps>({ isDark: false, isHeroVisible: false, isOffersSelectorVisible: false })
+    withProps<UiProps>({ isDark: false, isHeroVisible: true, isOffersSelectorVisible: true })
 );
 
 @Injectable({ providedIn: 'root' })

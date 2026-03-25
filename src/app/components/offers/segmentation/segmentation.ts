@@ -1,17 +1,15 @@
 import { Component, ElementRef, inject, AfterViewInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ROUTES } from '@app/config/routes.config';
 import { UiStore } from '@app/store/ui.store';
+import { Selector } from '../selector/selector';
 
 @Component({
   selector: 'app-segmentation',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [Selector],
   templateUrl: './segmentation.html',
   styleUrl: './segmentation.scss',
 })
 export class Segmentation implements AfterViewInit, OnDestroy {
-  protected readonly ROUTES = ROUTES;
   private uiStore = inject(UiStore);
   private elementRef = inject(ElementRef);
   private platformId = inject(PLATFORM_ID);
