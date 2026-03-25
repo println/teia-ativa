@@ -57,4 +57,17 @@ export class Header {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  scrollToContact(event: Event) {
+    if (isPlatformBrowser(this.platformId)) {
+      const contactEl = document.getElementById('contact');
+      if (contactEl) {
+        event.preventDefault();
+        contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        this.router.navigate([this.routes.home.fullPath], { fragment: 'contact' });
+      }
+    }
+    this.isMenuOpen = false;
+  }
 }
