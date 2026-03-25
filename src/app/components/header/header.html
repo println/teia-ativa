@@ -31,9 +31,13 @@
             <!-- Canto: Links Antigos e CTA -->
             <div class="hidden lg:flex space-x-6 items-center">
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [class.text-primary]="!isScrolled && isHomePage" [routerLink]="routes.services.fullPath">Serviços</a>
+                    [class.text-primary]="!isScrolled && isHomePage" 
+                    routerLinkActive="!text-accent font-bold after:scale-x-100 after:origin-bottom-left"
+                    [routerLink]="routes.services.fullPath">Serviços</a>
                 <a class="text-sm text-base-content/80 hover:text-accent font-medium transition relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
-                    [class.text-primary]="!isScrolled && isHomePage" [routerLink]="routes.about.fullPath">Sobre</a>
+                    [class.text-primary]="!isScrolled && isHomePage" 
+                    routerLinkActive="!text-accent font-bold after:scale-x-100 after:origin-bottom-left"
+                    [routerLink]="routes.about.fullPath">Sobre</a>
                 <div class="relative group-theme">
                     <button
                         class="flex items-center text-base-content/80 hover:text-accent font-medium focus:outline-none transition-colors hover:cursor-pointer"
@@ -75,11 +79,11 @@
             </div>
 
             <a class="flex items-center gap-3 px-4 py-4 text-lg font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
-                [routerLink]="routes.services.fullPath" (click)="isMenuOpen = false">
+                [routerLink]="routes.services.fullPath" routerLinkActive="!text-accent bg-base-200" (click)="isMenuOpen = false">
                 <span class="material-symbols-outlined text-2xl">category</span> Serviços
             </a>
             <a class="flex items-center gap-3 px-4 py-4 text-lg font-medium text-base-content hover:text-accent hover:bg-base-200 rounded-xl transition"
-                [routerLink]="routes.about.fullPath" (click)="isMenuOpen = false">
+                [routerLink]="routes.about.fullPath" routerLinkActive="!text-accent bg-base-200" (click)="isMenuOpen = false">
                 <span class="material-symbols-outlined text-2xl">info</span> Sobre
             </a>
             <div class="mt-auto pt-6 flex-1 flex flex-col justify-end">

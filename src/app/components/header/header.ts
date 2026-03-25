@@ -1,5 +1,5 @@
 import { Component, PLATFORM_ID, inject, HostListener } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { ROUTES } from '../../config/routes.config';
 import { UiStore } from '../../store/ui.store';
@@ -11,7 +11,7 @@ import { map } from 'rxjs';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterLink, LogoComponent, LogoIconComponent, Selector],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LogoComponent, LogoIconComponent, Selector],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
