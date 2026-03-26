@@ -64,7 +64,18 @@ export class Cta {
   sendMessage() {
     const phone = this.selectedContact.whatsapp.replace(/\D/g, '');
     const text = `Olá ${this.selectedContact.name}, meu nome é ${this.formData.name}. ${this.formData.message}`;
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
+    
+    // Detecta se é dispositivo móvel (incluído "Focus" para Firefox Focus)
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Focus/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // No mobile, usamos o protocolo direto que pula a página intermediária e abre o App na mesma hora.
+      const urlApp = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(text)}`;
+      window.location.href = urlApp;
+    } else {
+      // No desktop, usamos o wa.me para que haja o fallback elegante para o WhatsApp Web.
+      const urlWeb = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(urlWeb, '_blank');
+    }
   }
 }
