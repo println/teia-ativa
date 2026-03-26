@@ -87,7 +87,8 @@
     font-style: normal;
     font-weight: 100 700;
     font-display: swap;
-    src: url('../public/assets/fonts/MaterialSymbolsOutlined.woff2') format('woff2');
+    src: url('../public/assets/fonts/MaterialSymbolsOutlined.woff2') format('woff2'),
+        url('../public/assets/fonts/MaterialSymbolsOutlined.woff') format('woff');
 }
 
 .material-symbols-outlined {
