@@ -27,12 +27,13 @@ export class Header {
   private router = inject(Router);
 
   get isHomePage() {
+    const path = this.router.url.split('?')[0];
     return [
       ROUTES.home.path, 
       ROUTES.organization.path, 
       ROUTES.education.path, 
       ROUTES.public_management.path
-    ].includes(this.router.url);
+    ].includes(path);
   }
 
   @HostListener('window:scroll')
@@ -44,7 +45,8 @@ export class Header {
 
   scrollToTop() {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.router.url === ROUTES.home.path || this.router.url === ROUTES.organization.path || this.router.url === ROUTES.education.path || this.router.url === ROUTES.public_management.path) {
+      const path = this.router.url.split('?')[0];
+      if ([ROUTES.home.path, ROUTES.organization.path, ROUTES.education.path, ROUTES.public_management.path].includes(path)) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
